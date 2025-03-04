@@ -3,3 +3,6 @@ Cosas que faltan hacer
 2. terminar la vista del perfil de usuario
 3. hacer la vista de crear publicacion, seria igual que la de home pero con los edit editables para que el usuario pueda agregar la informacion, cargar la multimedia y boton de crear
 4. vista de reportes
+
+
+esta ess una prueba para ver si se suben los cambioss desde mi lap ignore ignore ignore ewe
