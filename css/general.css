@@ -31,13 +31,11 @@ body {
     justify-content: space-between;
     align-items:first baseline;
     padding: 10px;
-    
+    font-size: clamp(8px, 2vw, 16px);
 }
 
 .sidevar div{
-    border-bottom: 2px solid transparent; 
-    /* border-image: linear-gradient(to right, transparent, rgb(0, 128, 255), transparent) 1; */
-    font-size: 30px;
+   
     margin: 10px;
 }
 
