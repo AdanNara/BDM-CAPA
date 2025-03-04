@@ -1,11 +1,3 @@
-.container{
-    /*Grid*/
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(50px, 1fr) 15fr;
-    min-height: 100vh; 
-}  
-
 
 .categories {
     display: grid;
