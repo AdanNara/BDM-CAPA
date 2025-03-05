@@ -18,23 +18,44 @@
 <div class="container">
     
     <aside class="sidevar">
-        <i class="fa-solid fa-house"></i>
-        <i class='bx bx-menu' ></i>
-        <i class='bx bxs-home' ></i>
-        <i class='bx bxs-cog' ></i>
-        <i class='bx bxs-user' ></i>
+        <div class="parteSuperior">
+            <div class="inicio">
+                <i class='bx bxs-home' ></i>
+                <a href="home.html"> INICIO</a>
+            </div>
+            <div class="descubrir">
+                <i class='bx bxs-compass'></i>
+                <a  href="descubrir.html"> DESCUBRIR</a>
+            </div>
+            <div class="nuevaPublicacion">
+                <i class='bx bx-plus-circle' ></i>
+                <a  href="descubrir.html"> Crear publicacion</a>
+        </div>
+        </div>
+        <div class="parteInferior">
+            <div class="miPerfil">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+                <a href="userProfile.html"> Mi perfil</a>
+                
+            </div>
+        </div>
     </aside>
     <main class="content">
-        <h1>Mi perfi</h1>
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-        <label for="in_username">Nombre de usuario</label>
-        <label for="in_email">Nombre completo</label>
-        <input type="text" name="username" id="in_username">
-        <label for="in_email">Correo electronico</label>
-        <input type="text" name="email" id="in_email">
-        <label for="in_password">Contraseña</label>
-        <input type="password" name="password" id="in_password">
-        <input type="text" name="email" id="in_email">
+        <div class="profile-container">
+            <h1>Mi perfi</h1>
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+            <label for="in_username">Nombre de usuario</label>
+            <input type="text" name="username" id="in_username" disabled>
+            <label for="in_email">Nombre completo</label>
+            <input type="text" name="username" id="in_username" disabled>
+            <label for="in_email">Correo electronico</label>
+            <input type="text" name="email" id="in_email" disabled>
+            <label for="in_password">Contraseña</label>
+            <div class="profile-password">
+                <input type="password" name="password" id="in_password" disabled>
+                <i class='bx bxs-low-vision' ></i>
+            </div>
+        </div>
     </main>
 </div>
 </body>

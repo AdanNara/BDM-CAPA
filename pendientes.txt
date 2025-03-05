@@ -1,8 +1,5 @@
 Cosas que faltan hacer 
-1. acomodar el estilo y los html donde la barra lateral no  este bien colocada
+1. acomodar el estilo y los html donde la barra lateral no  este bien colocada---- listo
 2. terminar la vista del perfil de usuario
 3. hacer la vista de crear publicacion, seria igual que la de home pero con los edit editables para que el usuario pueda agregar la informacion, cargar la multimedia y boton de crear
 4. vista de reportes
-
-
-prueba push desde mi pc principal

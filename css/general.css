@@ -14,7 +14,7 @@ body {
 }
 
 .container{
-    /*Grid*/
+    
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 12fr;
@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items:first baseline;
     padding: 10px;
-    font-size: clamp(8px, 2vw, 16px);
+    font-size: clamp(15px, 2vw, 32px);
 }
 
 .sidevar div{
@@ -50,19 +50,18 @@ body {
 button{
     font-family: 'Teko', sans-serif;
     width: 100%;
-    background-color: rgb(18, 56, 112);
+    background-color: rgb(12, 56, 92);
     font-size: 30px;
-    
     margin-top: 15px;
     border-radius: 15px;
     border: none;
-
+    cursor: pointer;
     transition: transform 0.1s ease-in;
 }
 
 button:hover{
     transform: scale(1.05);
-    background-color: rgb(0, 132, 255);;
+    background-color: rgb(0, 91, 177);;
 }
 
 input{
