@@ -30,7 +30,11 @@
             <div class="nuevaPublicacion">
                 <i class='bx bx-plus-circle' ></i>
                 <a  href="descubrir.html"> Crear publicacion</a>
-        </div>
+            </div>
+            <div class="reporte">
+                <i class='bx bxs-report' ></i>
+                <a  href="descubrir.html"> Reporte</a>
+            </div>
         </div>
         <div class="parteInferior">
             <div class="miPerfil">
@@ -43,18 +47,36 @@
     <main class="content">
         <div class="profile-container">
             <h1>Mi perfi</h1>
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+            <div class="imagen-container">
+                
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+                <label for="input-image">
+                    <i class='bx bxs-image-add icono-imagen'></i>
+                </label>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-image">
+            </div>
+            <div class="api-seccion">
+                <p>*EN ESTE APARTADO SE MANEJARA LA CONEXION CON LA API</p>
+            </div>
             <label for="in_username">Nombre de usuario</label>
             <input type="text" name="username" id="in_username" disabled>
-            <label for="in_email">Nombre completo</label>
-            <input type="text" name="username" id="in_username" disabled>
-            <label for="in_email">Correo electronico</label>
+            
+            <label for="in_fullname">Nombre completo</label>
+            <input type="text" name="fullname" id="in_fullname" disabled>
+            
+            <label for="in_email">Correo electrónico</label>
             <input type="text" name="email" id="in_email" disabled>
+            
             <label for="in_password">Contraseña</label>
+            
+            
             <div class="profile-password">
                 <input type="password" name="password" id="in_password" disabled>
-                <i class='bx bxs-low-vision' ></i>
+                
             </div>
+
+            <button id="save-profile">Guardar cambios</button>
+            
         </div>
     </main>
 </div>

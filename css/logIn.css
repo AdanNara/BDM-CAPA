@@ -17,16 +17,13 @@ body{
     font-size: clamp(15px, 4vw, 30px);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(20px, 5vw, 40px);
+    padding: 40PX;
+    
 }
 
 .form-logIn, .form-signIn{
     display: flex;
-    width: 100%;
     flex-direction: column;
-    
     
 }
 
@@ -35,7 +32,7 @@ body{
 }
 
 .signIn-container{
-    width: 400px;
+    width: 600PX;
 }
 
 
@@ -45,7 +42,7 @@ input{
     border: 2px solid rgb(110, 110, 110);
     border-radius: 12px;
     padding: 8px;
-    width: 100%;
+    width: auto;
     font-size: clamp(15px, 2vw, 18px);
 }
 
@@ -57,4 +54,8 @@ input:focus{
 
 #btn_volver {
     background-color: #202020; /* Color de fondo */
+}
+
+.ir-registro{
+    color: #2da3f1;
 }
