@@ -1,0 +1,119 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.newPost-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+        "header"
+        "content"
+        "media"
+        "actions";
+        background-color: rgb(49, 49, 49);
+        border: 2px solid rgb(80, 80, 80);
+        border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    padding: 20px;
+    row-gap: 20px;
+}
+
+
+/* Cabecera */
+.post-header {
+    grid-area: header;
+    display: flex;
+    font-size: clamp(15px, 2vw, 20px);
+    align-items: center;
+    justify-content: center;
+}
+
+.post-header select{
+    font-size: 20px;
+    
+}
+
+.user-data{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    aspect-ratio: 1/1;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Contenido */
+.post-content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-content textarea{
+    margin-top: 15px;
+}
+
+/* Multimedia */
+.post-media {
+    grid-area: media;
+    width: 100%; 
+    background-color: rgb(75, 75, 75);
+    aspect-ratio: 3/2;
+    border-radius: 8px;
+    border: 2px solid rgba(201, 201, 201, 0.248);
+    place-self: center; /* Solo esta sección se centra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-media #input-image{
+    display: none;
+}
+
+.post-media label{
+    cursor: pointer;
+}
+
+.post-media p{
+    font-size: 20px;
+}
+
+.post-actions{
+    display: flex;
+    justify-content: center;
+}
+
+#in_description{
+    height: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+    font-size: 25px;
+    
+}
+th {
+    background-color: rgb(12, 56, 92);
+}
