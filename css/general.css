@@ -51,11 +51,12 @@ button{
     font-family: 'Teko', sans-serif;
     background-color: rgb(12, 56, 92);
     font-size: 30px;
-    margin-top: 15px;
+    margin: 20px;
+    padding-inline: 20px;
     border-radius: 15px;
     border: none;
     cursor: pointer;
-    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover{
@@ -68,12 +69,12 @@ label{
 }
 
 input{
-    
+    font-family: 'Teko', sans-serif;
     background-color: rgb(75, 75, 75);
     border: 2px solid rgb(110, 110, 110);
     border-radius: 12px;
     padding: 8px;
-    width: 100%;
+    width: auto;
     font-size: clamp(15px, 2vw, 18px);
 }
 
@@ -86,4 +87,22 @@ input:focus{
     width: 40px;
     height: auto;
     border-radius: 50%;
+}
+
+select{
+    background-color: rgb(75, 75, 75);
+    border: 2px solid rgb(110, 110, 110);
+    border-radius: 12px;
+    font-family: 'Teko', sans-serif;
+}
+
+textarea{
+    font-family: 'Teko', sans-serif;
+    background-color: rgb(75, 75, 75);
+    border: 2px solid rgb(110, 110, 110);
+    border-radius: 10px;
+    font-size: clamp(15px, 2vw, 20px);
+    resize: none;
+    field-sizing:content;
+    width: 700px;
 }

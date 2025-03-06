@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>home</title>
+    <title>new post</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/newPost.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium&family=Teko&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/595e5b2da4.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
- 
     <style>
     </style>
 </head>
@@ -41,45 +40,47 @@
             <div class="miPerfil">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
                 <a href="userProfile.html"> Mi perfil</a>
+                
             </div>
         </div>
     </aside>
     <main class="content">
-        
-        <div class="feed-container">
-            <div class="post-container">
-                <!-- Cabecera -->
-                <div class="post-header">
-                    <div class="user-data">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                        <p class="username">Nombre de Usuario</p>
-                    </div>
-                    <div class="post-category">
-                        <p class="category-name"> nombre del videojuego</p>
-                    </div>
+        <div class="newPost-container">
+             <!-- Cabecera -->
+            <div class="post-header">
+                <div class="user-data">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+                    <p class="username">Nombre de Usuario</p>
                 </div>
-        
-                <!-- Contenido -->
-                <div class="post-content">
-                    <h2 class="post-title">Título de la Publicación</h2>
-                    <p class="post-description">Descripción de la publicación este es un texto generico para comprobar el tamaño del contenedor de la publicacion y ver que no se este saliendo del margen o algo por el estilo, solo estoy probando cositas uwu</p>
-                </div>
-        
-                <!-- Multimedia -->
-                <div class="post-media">
-                    
-                </div>
-        
-                <!-- Acciones -->
-                <div class="post-actions">
-                    <p class="rating">999</p>
-                    <i class='bx bx-upvote bx-sm up-arrow' ></i>
-                    <i class='bx bx-downvote bx-sm down-arrow' ></i>
+                <div class="newPost-category">
+                    <select name="categories" id="categories-newPost">
+                        <option value="" disabled selected>Selecciona una categoria</option>
+                        <option value="marvelRivals">MARVEL RIVALS</option>
+                        <option value="cyberpunk2077">CYBERPUNK 2077</option>
+                        <option value="grandTheftAutoV">GRAND THEFT AUTO V</option>
+                        <option value="warzone">WARZONE</option>
+                      </select>
                 </div>
             </div>
-        </div>
-        
+             <!-- Contenido -->
+             <div class="post-content">
+                <textarea name="title" id="in_title" placeholder="Titulo de la publicación" ></textarea>
+                <textarea name="description" id="in_description" placeholder="Descripción de la publicación"></textarea>
+            </div>
+            <!-- Multimedia -->
+            <div class="post-media">
 
+                <label for="input-image">
+                    <i class='bx bxs-image-add icono-imagen'></i>
+                </label>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-image">
+                <p>Cargar multimedia</p>
+
+            </div>
+            <div class="post-actions">
+                <button id="publishPost">Publicar</button>
+            </div>
+        </div>
     </main>
 </div>
 </body>
