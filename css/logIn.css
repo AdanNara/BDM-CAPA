@@ -14,11 +14,10 @@ body{
     border: 2px solid rgb(80, 80, 80);
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-    font-size: clamp(15px, 4vw, 30px);
     display: flex;
     flex-direction: column;
-    padding: 40PX;
-    
+    padding: 20px;
+    font-size: clamp(14px, 2vw, 25px)
 }
 
 .form-logIn, .form-signIn{
@@ -27,29 +26,17 @@ body{
     
 }
 
-.form-signIn label, .form-logIn{
-    padding-top: 10px;
+.form-signIn label, .form-logIn label{
+    
+    font-size: clamp(14px, 2vw, 25px)
+}
+.form-logIn input, .form-signIn input{
+    font-size: clamp(14px, 2vw, 20px)
 }
 
 .signIn-container{
-    width: 600PX;
+    width: 400px;
 }
-
-
-input{
-    
-    background-color: rgb(75, 75, 75);
-    border: 2px solid rgb(110, 110, 110);
-    border-radius: 12px;
-    padding: 8px;
-    width: auto;
-    font-size: clamp(15px, 2vw, 18px);
-}
-
-input:focus{
-    outline: 3px solid #3498db
-}
-
 
 #btn_volver {
     background-color: #202020; /* Color de fondo */
@@ -57,4 +44,17 @@ input:focus{
 
 .ir-registro{
     color: #2da3f1;
+}
+
+.backTo-logIn{
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: #202020;
+}
+
+.backTo-logIn:hover{
+    background-color: #444444;
 }

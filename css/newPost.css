@@ -92,3 +92,8 @@
     display: flex;
     justify-content: center;
 }
+
+#in_title, #in_description{
+padding: 10px;
+box-sizing: border-box;
+}

@@ -103,15 +103,18 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 15px;
     margin: 20px 0;
 }
 th, td {
-    border: 1px solid white;
+    border: 2px solid rgb(134, 134, 134);
+    background-color: rgb(62, 62, 62);;
     padding: 8px;
     text-align: left;
     font-size: 25px;
     
 }
 th {
-    background-color: rgb(12, 56, 92);
+    background-color:rgb(12, 56, 92);
+    color: rgb(206, 206, 206);
 }

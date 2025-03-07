@@ -105,10 +105,12 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 15px;
     margin: 20px 0;
 }
 th, td {
-    border: 1px solid white;
+    border: 2px solid rgb(134, 134, 134);
+    
     padding: 8px;
     text-align: left;
     font-size: 25px;
