@@ -18,38 +18,41 @@
 #contenedor-chat{
     display: flex;
     gap:10px;
-    background-color: black;
+    background-color: rgba(150, 150, 150, 0.15);
     width: 80%;
-
     padding: 20px;
     border-radius: 20px;
-
     height: 85%;
 }
 
 /* PARTE IZQUIERDA*/
 
 #cont-Usuarios{
-    border: 1px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
     flex: 20%;
-
     padding: 10px;
-
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .contacto{
-    border: 1px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     padding: 5px;
+    transition: transform 0.1s ease-in-out;
 }
 
 .contacto:hover{
+    transform: scale(1.03);
     cursor: pointer;
-    background-color: rgb(63, 63, 63);
+    background-color: #185b85;
 
+}
+
+.contacto:active{
+    transform: scale(0.95);
 }
 
 
@@ -58,7 +61,7 @@
 #cont-mensajes{
     flex: 80%;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-direction: column;
 }
 
@@ -66,11 +69,11 @@
 
 #cont-usuario{
     flex:10%;
-    border-radius: 20px;
+    border-radius: 10px;
 
     display: flex;
     align-items: center;
-    
+    border: 2px solid rgba(255, 255, 255, 0.3);
     padding-left: 15px;
 }
 
@@ -78,12 +81,10 @@
 
 #cont-chat{
     padding: 10px;
-
-    background-color: white;
-    color: black;
-
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
     flex: 83%;
-
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
 }
@@ -107,7 +108,7 @@
 }
 
 .texto-msj{
-    color: black;
+    color: rgb(224, 224, 224);
 }
 
 

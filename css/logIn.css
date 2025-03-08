@@ -10,8 +10,8 @@ body{
 
 .logIn-container, .signIn-container{
     
-    background-color: rgb(49, 49, 49);
-    border: 2px solid rgb(80, 80, 80);
+    background-color: rgba(150, 150, 150, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     display: flex;

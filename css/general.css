@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Teko', sans-serif;
-    background: linear-gradient(160deg, rgba(24,69,96,1) 0%, rgba(21,28,38,1) 72%);
+    background: linear-gradient(180deg, rgba(24,69,96,1) 0%, rgba(21,28,38,1) 60%);
     min-height: 100vh; 
 }
 
@@ -39,6 +39,24 @@ body {
     margin: 10px;
 }
 
+.sidevar .parteSuperior div {
+    
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.sidevar .parteSuperior div:active {
+    transform: scale(0.9);
+    
+}
+
+
+
+
+.contacto:active{
+    
+}
+
 .miPerfil{
     display: flex;
     align-items: center;
@@ -49,7 +67,7 @@ body {
 
 button{
     font-family: 'Teko', sans-serif;
-    background-color: rgb(12, 56, 92);
+    background-color: #0f3d5a;
     font-size: 30px;
     padding-inline: 20px;
     border-radius: 15px;
@@ -61,7 +79,7 @@ button{
 
 button:hover{
     
-    background-color: rgb(0, 91, 177);;
+    background-color: #185b85;
 }
 
 label{
@@ -70,13 +88,15 @@ label{
 
 input{
     font-family: 'Teko', sans-serif;
-    background-color: rgb(75, 75, 75);
-    border: 2px solid rgb(110, 110, 110);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 8px;
     width: auto;
     font-size: clamp(15px, 2vw, 18px);
 }
+
+
 
 input:focus{
     outline: 3px solid #3498db
@@ -90,21 +110,37 @@ input:focus{
 }
 
 select{
-    background-color: rgb(75, 75, 75);
-    border: 2px solid rgb(110, 110, 110);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     font-family: 'Teko', sans-serif;
+    padding: 10px;
+}
+
+option{
+    background-color: rgba(255, 255, 255);
+    color: rgb(73, 73, 73);
 }
 
 textarea{
     font-family: 'Teko', sans-serif;
-    background-color: rgb(75, 75, 75);
-    border: 2px solid rgb(110, 110, 110);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
     border-radius: 10px;
     font-size: clamp(15px, 2vw, 20px);
     resize: none;
     field-sizing:content;
     width: 700px;
+}
+
+
+textarea:focus{
+    outline: 3px solid #3498db
+}
+
+textarea::placeholder{
+    color:rgb(187, 187, 187);
 }
 
 .buttonBuzon{
@@ -128,4 +164,19 @@ textarea{
     transform: scale(1.1);
     background-color: #185b85;
     cursor: pointer;
+}
+
+.logOut{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logOut a{
+    color: rgb(37, 144, 194);
+}
+
+.logOut .icon-logOut{
+    color: rgb(37, 144, 194);
 }
