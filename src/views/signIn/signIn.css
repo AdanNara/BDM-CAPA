@@ -1,0 +1,60 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logIn-container, .signIn-container{
+    
+    background-color: rgba(150, 150, 150, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: clamp(14px, 2vw, 25px)
+}
+
+.form-logIn, .form-signIn{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form-signIn label, .form-logIn label{
+    
+    font-size: clamp(14px, 2vw, 25px)
+}
+.form-logIn input, .form-signIn input{
+    font-size: clamp(14px, 2vw, 20px)
+}
+
+.signIn-container{
+    width: 400px;
+}
+
+#btn_volver {
+    background-color: #202020; /* Color de fondo */
+}
+
+.ir-registro{
+    color: #2da3f1;
+}
+
+.backTo-logIn{
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: #202020;
+}
+
+.backTo-logIn:hover{
+    background-color: #444444;
+}
