@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <title>Registrar usuario</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../general.css">
-    <link rel="stylesheet" href="signIn.css">
+    <link rel="stylesheet" href="/src/views/general.css">
+    <link rel="stylesheet" href="/src/views/signIn/signIn.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira&family=Teko&display=swap" rel="stylesheet">
@@ -19,15 +19,15 @@
 <div class="container">
     
         <div class="signIn-container">
-                <a href="../login/logIn.html" class="backTo-logIn"> <i class='bx bx-arrow-back'></i></a>
+                <a href="/" class="backTo-logIn"> <i class='bx bx-arrow-back'></i></a>
             <h1>NUEVO REGISTRO</h1>
             
-                <form id="formSingIn" class="form-signIn" action="" method="post" autocomplete="off">
+                <form id="formSingIn" class="form-signIn" action="/src/controllers/registro.php" method="post" autocomplete="off">
 
                         <label for="in_username">Nombre de usuario</label>
                         <input type="text" name="username" id="in_username" required>
                         <label for="in_fullname">Nombre completo</label>
-                        <input type="text" name="email" id="in_nombre" required>
+                        <input type="text" name="nombre" id="in_nombre" required>
                         <label for="in_email">Correo electronico</label>
                         <input type="text" name="email" id="in_email" required>
                         <label for="in_password">Contraseña</label>
@@ -41,6 +41,6 @@
 </div>
 </body>
 
-<script src="signIn.js"></script>
+<script src="/src/views/signIn/signIn.js"></script>
 
 </html>

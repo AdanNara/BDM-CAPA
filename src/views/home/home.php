@@ -4,8 +4,8 @@
     <title>Inicio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../general.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/src/views/general.css">
+    <link rel="stylesheet" href="/src/views/home/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium&family=Teko&display=swap" rel="stylesheet">
@@ -16,13 +16,22 @@
     </style>
 </head>
 <body>
+
+<?php
+    session_start();
+
+    $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
+
+?>
+
+
 <div class="container">
     
     <aside class="sidevar">
         <div class="parteSuperior">
             <div class="inicio">
                 <i class='bx bxs-home' ></i>
-                <a href="../home/home.html"> INICIO</a>
+                <a href="/home"> INICIO</a>
             </div>
             <div class="descubrir">
                 <i class='bx bxs-compass'></i>
@@ -48,7 +57,7 @@
         <div class="parteInferior">
             <div class="miPerfil">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                <a href="../userProfile/userProfile.html"> Mi perfil</a>
+                <a href="../userProfile/userProfile.html"> <?= htmlspecialchars($usuarioLoggeado['username']) ?> </a>
             </div>
             <div class="logOut"> 
                 <a href="../login/logIn.html"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>
