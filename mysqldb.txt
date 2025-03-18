@@ -1,0 +1,18 @@
+create database db_videopost;
+
+use db_videopost;
+
+create table usuarios(
+username varchar(20) primary key,
+nombre varchar(50) not null,
+correoE varchar(50) not null unique,
+contrasena varchar(20) not null,
+gamertag varchar(40),
+fotoPerfil mediumblob,
+tipoUsuario binary default 0 
+);
+
+select * from usuarios;
+
+delete from usuarios where username="jorgepablo23";
+SELECT username, nombre, correoE, tipoUsuario INTO usuarios WHERE username = "jorgepablo23" AND contrasena = perrito203;
