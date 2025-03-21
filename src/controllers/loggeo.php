@@ -13,7 +13,8 @@ $dbConnection = new Database($config['database']);
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = 'SELECT username, nombre, correoE, tipoUsuario FROM usuarios WHERE username = :username AND contrasena = :password';
+//$query = 'SELECT username, nombre, correoE, tipoUsuario FROM usuarios WHERE username = :username AND contrasena = :password';
+$query = 'CALL sp_GestionUsuarios(2,:username,null,null,:password, null, null)';
 
 $result = $dbConnection->query($query,[
     ':username' => $username,

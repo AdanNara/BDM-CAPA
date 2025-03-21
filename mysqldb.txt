@@ -3,16 +3,52 @@ create database db_videopost;
 use db_videopost;
 
 create table usuarios(
-username varchar(20) primary key,
-nombre varchar(50) not null,
-correoE varchar(50) not null unique,
-contrasena varchar(20) not null,
-gamertag varchar(40),
-fotoPerfil mediumblob,
-tipoUsuario binary default 0 
+	username varchar(20) primary key COMMENT 'Identificador unico del usuario',
+	nombre varchar(50) not null COMMENT 'Nombre completo del usuario',
+	correoE varchar(100) not null unique COMMENT 'Email del usuario, irrepetible',
+	contrasena varchar(20) not null ,
+	discordUser varchar(40) COMMENT 'Perfil del usuario en la plataforma Discord',
+	tipoUsuario tinyint default 0 COMMENT 'tipo de usuario: 0 - normal, 1 - administrador',
+	fotoPerfil mediumblob 
 );
 
 select * from usuarios;
+truncate table usuarios;
+drop table usuarios;
+desc usuarios;
 
-delete from usuarios where username="jorgepablo23";
-SELECT username, nombre, correoE, tipoUsuario INTO usuarios WHERE username = "jorgepablo23" AND contrasena = perrito203;
+#SP PARA GESTION DE USUARIOS
+DELIMITER &&
+CREATE PROCEDURE sp_GestionUsuarios(
+	accion tinyint,
+    pusername varchar(20),
+    pnombre varchar(50),
+    pcorreoE varchar(50), 
+	pcontrasena varchar(20),
+	pdiscordUser varchar(40),
+	pfotoPerfil mediumblob 
+)
+BEGIN
+	#1 REGISTRAR USUARIO
+	IF accion = 1 THEN
+		INSERT INTO usuarios (username, nombre, correoE, contrasena)
+		VALUES (pusername, pnombre, pcorreoE, pcontrasena);
+	END IF;
+    
+    #2 INICIAR SESION
+    IF accion = 2 THEN
+		SELECT username, nombre, correoE, tipoUsuario
+        FROM usuarios 
+        WHERE username = pusername AND contrasena = pcontrasena;
+    END IF;
+    
+END &&
+DELIMITER ;
+
+SHOW CREATE PROCEDURE sp_GestionUsuarios;
+DROP PROCEDURE sp_GestionUsuarios;
+
+#EJEMPLO DE EJECUCCION
+CALL sp_GestionUsuarios(1,'usuario123','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
+CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
+
