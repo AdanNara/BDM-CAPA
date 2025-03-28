@@ -47,26 +47,29 @@
             <div class="api-seccion">
                 <p>*EN ESTE APARTADO SE MANEJARA LA CONEXION CON LA API</p>
             </div>
-            <label for="in_username">Nombre de usuario</label>
-            <input type="text" name="username" id="in_username" value="<?= htmlspecialchars($usuarioLoggeado['username']) ?>" disabled>
-            
-            <label for="in_fullname">Nombre completo</label>
-            <input type="text" name="fullname" id="in_fullname" value="<?= htmlspecialchars($usuarioLoggeado['nombre']) ?>" disabled>
-            
-            <label for="in_email">Correo electrónico</label>
-            <input type="text" name="email" id="in_email" value="<?= htmlspecialchars($usuarioLoggeado['correoE']) ?>" disabled>
-            
-            <label for="in_password" >Contraseña</label>
-            
-            <div class="profile-password">
-                <input type="text" name="password" id="in_password" value="<?= htmlspecialchars($usuarioLoggeado['contrasena'])?>" disabled>
-                
-            </div>
 
-            <div id="profile-buttons">
-                <button id="modify-profile">Modificar</button>
-                <button id="save-profile" type="submit" style="display: none;">Guardar cambios</button>
-            </div>
+            <form id="formulario-infousuario" method="post" action="/src/controllers/modificarUsuario.php">
+                <label for="lb_username">Nombre de usuario</label>
+                <input type="text" name="username" id="in_username" value="<?= htmlspecialchars($usuarioLoggeado['username']) ?>" disabled>
+                
+                <label for="lb_fullname">Nombre completo</label>
+                <input type="text" name="nombre" id="in_fullname" value="<?= htmlspecialchars($usuarioLoggeado['nombre']) ?>" disabled>
+                
+                <label for="lb_email">Correo electrónico</label>
+                <input type="text" name="email" id="in_email" value="<?= htmlspecialchars($usuarioLoggeado['correoE']) ?>" disabled>
+                
+                <label for="lb_password" >Contraseña</label>
+                
+                <div class="profile-password">
+                    <input type="password" name="password" id="in_password" value="<?= htmlspecialchars($usuarioLoggeado['contrasena'])?>" disabled>
+                    
+                </div>
+
+                <div id="profile-buttons">
+                    <button id="modify-profile" type="button" >Modificar</button>
+                    <button id="save-profile" type="submit" style="display: none;">Guardar cambios</button>
+                </div>
+            </form>
            
         </div>
     </main>

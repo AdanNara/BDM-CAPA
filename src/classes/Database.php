@@ -13,5 +13,10 @@ class Database {
         $statement->execute($args);
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function queryInsert($query,$args){
+        $statement = $this->connection->prepare($query);
+        $statement->execute($args);
+    }
     
 }

@@ -3,7 +3,6 @@
 session_start();
 
 require '../classes/Database.php';
-//require '../models/m_usuario.php';
 require 'functions.php';
 
 $config = require '../classes/configDB.php';
