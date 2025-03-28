@@ -4,8 +4,8 @@
     <title>Crear publicación</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../general.css">
-    <link rel="stylesheet" href="newPost.css">
+    <link rel="stylesheet" href="src/views/general.css">
+    <link rel="stylesheet" href="src/views/newPost/newPost.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium&family=Teko&display=swap" rel="stylesheet">
@@ -15,46 +15,21 @@
     </style>
 </head>
 <body>
+
+
+    <?php
+
+    session_start();
+
+    $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
+
+    ?>
+
 <div class="container">
     
-    <aside class="sidevar">
-        <div class="parteSuperior">
-            <div class="inicio">
-                <i class='bx bxs-home' ></i>
-                <a href="../home/home.html"> INICIO</a>
-            </div>
-            <div class="descubrir">
-                <i class='bx bxs-compass'></i>
-                <a  href="../descubrir/descubrir.html"> DESCUBRIR</a>
-            </div>
-            <div class="nuevaPublicacion">
-                <i class='bx bx-plus-circle' ></i>
-                <a  href="../newPost/newPost.html"> Crear publicacion</a>
-            </div>
-            <div class="Chat">
-                <i class='bx bx-conversation' ></i>
-                <a  href="../chat/chat.html"> Chat</a>
-            </div>
-            <div class="reporte">
-                <i class='bx bxs-report' ></i>
-                <a  href="../consultaInfo/consultaInfo.html"> Consultar</a>
-            </div>
-            <div class="buzon">
-                <i class='bx bx-envelope'></i>
-                <a  href="../buzon/buzon.html"> Buzón</a>
-            </div>
-        </div>
-        <div class="parteInferior">
-            <div class="miPerfil">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                <a href="../userProfile/userProfile.html"> Mi perfil</a>
-            </div>
-            <div class="logOut"> 
-                <a href="../login/logIn.html"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>
-            </div>
-            
-        </div>
-    </aside>
+    <?php
+    require 'src/views/partials/asidebar.php'
+    ?>
 
 
     <main class="content">
@@ -104,6 +79,6 @@
 
 </body>
 
-<script src="newPost.js"></script>
+<script src="src/views/newPost/newPost.js"></script>
 
 </html>
