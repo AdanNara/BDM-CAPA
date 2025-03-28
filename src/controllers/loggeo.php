@@ -3,7 +3,7 @@
 session_start();
 
 require '../classes/Database.php';
-require '../models/m_usuario.php';
+//require '../models/m_usuario.php';
 require 'functions.php';
 
 $config = require '../classes/configDB.php';
@@ -13,7 +13,7 @@ $dbConnection = new Database($config['database']);
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-//$query = 'SELECT username, nombre, correoE, tipoUsuario FROM usuarios WHERE username = :username AND contrasena = :password';
+$query = 'SELECT nombre, correoE, tipoUsuario FROM usuarios WHERE username = :username AND contrasena = :password';
 $query = 'CALL sp_GestionUsuarios(2,:username,null,null,:password, null, null)';
 
 $result = $dbConnection->query($query,[
@@ -23,13 +23,14 @@ $result = $dbConnection->query($query,[
 
 if ($result) {
     $_SESSION['usuarioLoggeado'] = [
-        'username' => $result[0]->username,
+        'username' => $username,
         'nombre' => $result[0]->nombre,
         'correoE' => $result[0]->correoE,
+        'contrasena' => $password,
         'tipoUsuario' => $result[0]->tipoUsuario
     ];
 
-    header('Location: /home'); // Redirigir a home
+    header('Location: /home'); 
     exit();
 } else {
     echo "Usuario o contraseña incorrectos.";

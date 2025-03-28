@@ -5,7 +5,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
     '/' => 'src/views/login/login.php',
     '/signIn' => 'src/views/signIn/signIn.php',
-    '/home' => 'src/views/home/home.php'
+    '/home' => 'src/views/home/home.php',
+    '/perfil' => 'src/views/userProfile/userProfile.php'
 
 ];
 

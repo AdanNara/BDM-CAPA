@@ -57,7 +57,7 @@
         <div class="parteInferior">
             <div class="miPerfil">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                <a href="../userProfile/userProfile.html"> <?= htmlspecialchars($usuarioLoggeado['username']) ?> </a>
+                <a href="/perfil"> <?= htmlspecialchars($usuarioLoggeado['nombre']) ?> </a>
             </div>
             <div class="logOut"> 
                 <a href="../login/logIn.html"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>
