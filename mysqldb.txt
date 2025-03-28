@@ -42,6 +42,16 @@ BEGIN
         WHERE username = pusername AND contrasena = pcontrasena;
     END IF;
     
+    #3 MODIFICAR INFOUSUARIO
+    IF accion = 3 THEN
+		UPDATE usuarios
+			SET username = pusername,
+            nombre = pnombre,
+            correoE = pcorreoE,
+            contrasena = pcontrasena
+		WHERE username = pusername;
+	END IF; 
+    
 END &&
 DELIMITER ;
 
