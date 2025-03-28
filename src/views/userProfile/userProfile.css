@@ -63,3 +63,11 @@ button{
     width: fit-content;
     padding-inline: 20px;
 }
+
+#profile-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}

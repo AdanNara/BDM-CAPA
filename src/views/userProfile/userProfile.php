@@ -63,8 +63,11 @@
                 
             </div>
 
-            <button id="save-profile">Guardar cambios</button>
-            
+            <div id="profile-buttons">
+                <button id="modify-profile">Modificar</button>
+                <button id="save-profile" type="submit" style="display: none;">Guardar cambios</button>
+            </div>
+           
         </div>
     </main>
 </div>
