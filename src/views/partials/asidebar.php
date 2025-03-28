@@ -11,6 +11,9 @@
         <i class='bx bxs-compass'></i>
         <a  href="/descubrir"> DESCUBRIR</a>
     </div>
+
+    <hr>
+
     <div class="nuevaPublicacion">
         <i class='bx bx-plus-circle' ></i>
         <a  href="/publicar"> Crear publicacion</a>
@@ -19,6 +22,8 @@
         <i class='bx bx-conversation' ></i>
         <a  href="/chat"> Chat</a>
     </div>
+
+    <?php if($usuarioLoggeado['tipoUsuario'] ==1): ?>
     <div class="reporte">
         <i class='bx bxs-report' ></i>
         <a  href="/consultar"> Consultar</a>
@@ -27,6 +32,8 @@
         <i class='bx bx-envelope'></i>
         <a  href="/buzon"> Buzón</a>
     </div>
+    <?php endif; ?>
+
 </div>
 <div class="parteInferior">
     <div class="miPerfil">
