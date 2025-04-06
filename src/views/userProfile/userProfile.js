@@ -13,6 +13,7 @@ var inputName = document.getElementById("in_fullname");
 var inputEmail = document.getElementById("in_email");
 var inputPassword = document.getElementById("in_password");
 
+//VALORES INICIALES
 var antUsername = document.getElementById("in_username").value;
 var antName = document.getElementById("in_fullname").value;
 var antEmail = document.getElementById("in_email").value;
@@ -91,3 +92,52 @@ document.getElementById("formulario-infousuario").addEventListener("submit", fun
     }
 
 });
+
+
+//CARGA DE LA IMAGEN DE PERFIL
+
+var imagenCargada = false;
+
+const imagenPerfil = document.getElementById("input-image");
+const avatar = document.getElementById("avatar");
+let salvarCambios = document.getElementById("salvarCambios");
+
+imagenPerfil.addEventListener("change", function(event) {
+    const archivo = event.target.files[0];
+
+    if (archivo) {
+        const lector = new FileReader();
+
+        lector.onload = function(e) {
+            avatar.src = e.target.result;
+        };
+
+        lector.readAsDataURL(archivo); 
+        imagenCargada = true;
+        salvarCambios.style.display = "inline-block"; 
+    }
+});
+
+//GUARDAR LA IMAGEN DE PERFIL EN BASE DE DATOS
+const formImagen = document.getElementById("imagen-form");
+
+formImagen.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(formImagen);
+
+    fetch("/subir-imagen", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text()) 
+    .then(data => {
+        alert("Imagen de perfil" + data);
+        window.location.reload(); 
+    })
+    .catch(error => {
+        console.error("Error al subir la imagen:", error);
+    });  
+
+});
+

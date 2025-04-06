@@ -37,7 +37,9 @@
 </div>
 <div class="parteInferior">
     <div class="miPerfil">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+        <img src="src/controllers/mostrarImagen.php?id=<?= $usuarioLoggeado['username']?>" 
+        alt="Avatar" class="user-avatar"
+        onerror="this.onerror=null; this.src='resources/avatar.jpg';">
         <a href="/perfil"> <?= htmlspecialchars($usuarioLoggeado['nombre']) ?> </a>
     </div>
     <div class="logOut"> 

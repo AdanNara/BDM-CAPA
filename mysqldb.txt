@@ -17,6 +17,10 @@ truncate table usuarios;
 drop table usuarios;
 desc usuarios;
 
+update usuarios 
+set fotoPerfil = null
+where username = 'jorgepablo23';
+
 #SP PARA GESTION DE USUARIOS
 DELIMITER &&
 CREATE PROCEDURE sp_GestionUsuarios(
@@ -51,6 +55,19 @@ BEGIN
             contrasena = pcontrasena
 		WHERE username = pusername;
 	END IF; 
+    
+    #4 SUBIR FOTO DE PERFIL
+    IF accion = 4 THEN
+		UPDATE usuarios
+			SET fotoPerfil = pfotoPerfil
+		WHERE username = pusername;
+    END IF;
+    
+        IF accion = 5 THEN
+			SELECT fotoPerfil 
+            FROM usuarios
+            WHERE  username = pusername;
+    END IF;
     
 END &&
 DELIMITER ;

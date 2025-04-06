@@ -37,12 +37,24 @@
         <div class="profile-container">
             <h1>Mi perfil</h1>
             <div class="imagen-container">
+                <img id="avatar" src="src/controllers/mostrarImagen.php?id=<?= $usuarioLoggeado['username']?>" 
+                alt="Avatar" class="user-avatar"
+                onerror="this.onerror=null; this.src='resources/avatar.jpg';">
                 
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                <label for="input-image">
-                    <i class='bx bxs-image-add icono-imagen'></i>
-                </label>
-                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-image">
+                <form id="imagen-form" enctype="multipart/form-data">
+                    <input type="file" name="imagenPerfil" accept="image/jpg" id="input-image">
+
+                    <div id="#profile-buttons">
+                        <label for="input-image">
+                            <i class='bx bxs-image-add icono-imagen'></i>
+                        </label>
+
+                        <button id="salvarCambios" id="save-image">
+                            <i class='bx bxs-save icono-imagen'></i>
+                        </button>
+                    </div>
+                </form>
+
             </div>
             <div class="api-seccion">
                 <p>*EN ESTE APARTADO SE MANEJARA LA CONEXION CON LA API</p>
@@ -62,7 +74,6 @@
                 
                 <div class="profile-password">
                     <input type="password" name="password" id="in_password" value="<?= htmlspecialchars($usuarioLoggeado['contrasena'])?>" disabled>
-                    
                 </div>
 
                 <div id="profile-buttons">
