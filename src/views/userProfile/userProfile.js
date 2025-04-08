@@ -132,7 +132,7 @@ formImagen.addEventListener("submit", function(event) {
     })
     .then(response => response.text()) 
     .then(data => {
-        alert("Imagen de perfil" + data);
+        alert("Imagen de perfil actualizada correctamente.");
         window.location.reload(); 
     })
     .catch(error => {
