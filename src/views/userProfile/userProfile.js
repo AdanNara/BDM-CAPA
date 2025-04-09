@@ -126,7 +126,7 @@ formImagen.addEventListener("submit", function(event) {
 
     const formData = new FormData(formImagen);
 
-    fetch("/subir-imagen", {
+    fetch("src/controllers/subirImagen.php", {
         method: "POST",
         body: formData
     })

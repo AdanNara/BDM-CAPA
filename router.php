@@ -12,8 +12,7 @@ $routes = [
     '/chat'=> 'src/views/chat/chat.php',
     '/consultar' => 'src/views/consultaInfo/consultaInfo.php',
     '/buzon' => 'src/views/buzon/buzon.php',
-    '/reportar' => 'src/views/newReport/newReport.php',
-    '/subir-imagen' => 'src/controllers/subirImagen.php'
+    '/reportar' => 'src/views/newReport/newReport.php'
 ];
 
 

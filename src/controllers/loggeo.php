@@ -12,7 +12,7 @@ $dbConnection = new Database($config['database']);
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = 'SELECT nombre, correoE, tipoUsuario, fotoPerfil FROM usuarios WHERE username = :username AND contrasena = :password';
+//$query = 'SELECT nombre, correoE, tipoUsuario, fotoPerfil FROM usuarios WHERE username = :username AND contrasena = :password';
 $query = 'CALL sp_GestionUsuarios(2,:username,null,null,:password, null, null)';
 
 $result = $dbConnection->query($query,[
@@ -28,9 +28,9 @@ if ($result) {
         'contrasena' => $password,
         'tipoUsuario' => $result[0]->tipoUsuario
     ];
-
     header('Location: /home'); 
     exit();
+    
 } else {
     echo "Usuario o contraseña incorrectos.";
 }

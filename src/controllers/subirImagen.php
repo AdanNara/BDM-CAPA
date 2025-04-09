@@ -2,9 +2,9 @@
 
 session_start();
 
-require 'src/classes/Database.php';
+require '../classes/Database.php';
 
-$config = require 'src/classes/configDB.php';
+$config = require '../classes/configDB.php';
 
 $dbConnection = new Database($config['database']);
 
