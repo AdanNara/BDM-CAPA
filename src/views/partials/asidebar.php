@@ -14,7 +14,7 @@
 
     <div class="nuevaPublicacion">
         <i class='bx bx-plus-circle' ></i>
-        <a  href="/publicar"> Crear publicacion</a>
+        <a  href="/publicar"> Publicar</a>
     </div>
     <div class="Chat">
         <i class='bx bx-conversation' ></i>

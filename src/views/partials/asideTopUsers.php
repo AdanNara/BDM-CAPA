@@ -1,6 +1,4 @@
 
-
-
 <aside class="sidevarTopUsers">
     <div class="topUsersContainer"> 
         <H1>RANKING DE USUARIOS</H1>
