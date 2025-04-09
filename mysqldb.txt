@@ -63,6 +63,22 @@ truncate table usuarios;
 drop table usuarios;
 desc usuarios;
 
+select * from publicaciones;
+truncate table publicaciones;
+drop table publicaciones;
+
+select * from reportes;
+truncate table reportes;
+drop table reportes;
+
+select * from videojuegos;
+truncate table videojuegos;
+drop table videojuegos;
+
+select * from mensajes;
+truncate table mensajes;
+drop table mensajes;
+
 update usuarios 
 set fotoPerfil = null
 where username = 'jorgepablo23';
@@ -109,7 +125,8 @@ BEGIN
 		WHERE username = pusername;
     END IF;
     
-        IF accion = 5 THEN
+    #5 TRAER FOTO DE PERFIL
+	IF accion = 5 THEN
 			SELECT fotoPerfil 
             FROM usuarios
             WHERE  username = pusername;
@@ -124,4 +141,33 @@ DROP PROCEDURE sp_GestionUsuarios;
 #EJEMPLO DE EJECUCCION
 CALL sp_GestionUsuarios(1,'usuario123','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
 CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
+
+#DICCIONARIO DE DATOS
+SELECT 
+    COLUMN_NAME AS 'Columna',
+    COLUMN_TYPE AS 'Tipo de dato',
+    IS_NULLABLE AS 'Acepta NULL',
+    COLUMN_KEY AS 'Clave',
+    COLUMN_DEFAULT AS 'Valor por defecto',
+    EXTRA AS 'Extra',
+    COLUMN_COMMENT AS 'Comentario'
+FROM 
+    INFORMATION_SCHEMA.COLUMNS
+WHERE 
+    TABLE_SCHEMA = 'db_videopost' AND
+    TABLE_NAME = 'usuarios';
+    
+#VISTA PARA LA API
+create view vw_ListaUsuariosAPI as
+SELECT 
+    username, 
+    nombre, 
+    correoE, 
+    CASE 
+        WHEN tipoUsuario = 0 THEN 'USUARIO'
+        WHEN tipoUsuario = 1 THEN 'ADMINISTRADOR'
+    END AS tipoUsuario
+FROM usuarios;
+
+SELECT * FROM vw_ListaUsuariosAPI;
 
