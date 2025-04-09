@@ -70,6 +70,12 @@
             </div>
         </div>
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
+
 </div>
 
 <div id="abrirBuzon" class="buttonBuzon">

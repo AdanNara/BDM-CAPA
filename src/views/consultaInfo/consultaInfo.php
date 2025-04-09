@@ -64,6 +64,12 @@
             
         </div>
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
+
 </div>
 
 

@@ -12,8 +12,6 @@
         <a  href="/descubrir"> DESCUBRIR</a>
     </div>
 
-    <hr>
-
     <div class="nuevaPublicacion">
         <i class='bx bx-plus-circle' ></i>
         <a  href="/publicar"> Crear publicacion</a>

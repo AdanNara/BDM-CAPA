@@ -33,7 +33,7 @@
     ?>
 
         
-    </aside>
+    
     <main class="content">
         
         <div class="categories">
@@ -81,6 +81,11 @@
         </div>
 
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
 </div>
 
 
