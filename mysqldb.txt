@@ -28,8 +28,8 @@ create table publicaciones(
     downvote int default 0 COMMENT 'Votos negativos que tiene la publicacion',
     calificacion int default 0 COMMENT 'Calificacion calculada restando el valor downvote a upvote',
     fechahora datetime default now() COMMENT 'Fecha y hora cuando se realizo la publicacion',
-    usuario varchar(20) not null,
-    videojuego int,
+    usuario varchar(20) not null COMMENT 'Llave foranea a usuarios',
+    videojuego int COMMENT 'Llave foranea a videojuegos',
     
     foreign key (usuario) references usuarios(username),
     foreign key (videojuego) references videojuegos(idVideojuego)
@@ -41,15 +41,15 @@ create table reportes(
     descripcion text not null COMMENT 'Explicacion del usuario sobre su reporte',
 	fechahora datetime default now() COMMENT 'Fecha y hora cuando se realizo el reporte',
     estado int default 0 COMMENT 'Estado actual del reporte: 0=Pendiente, 1=Revisado',
-	usuario varchar(20) not null,
+	usuario varchar(20) not null COMMENT 'Llave foranea a usuarios',
 
     foreign key (usuario) references usuarios(username)
 );
 
 create table mensajes(
 	idMensaje int primary key auto_increment,
-    remitente varchar(20) not null COMMENT 'Usuario que envia el mensaje',
-	destinatario varchar(20) not null COMMENT 'Usuario que recibe el mensaje',
+    remitente varchar(20) not null COMMENT 'FK de Usuario que envia el mensaje',
+	destinatario varchar(20) not null COMMENT 'FK de Usuario que recibe el mensaje',
 	mensaje text not null ,
 	fechahora datetime default now() COMMENT 'Fecha y hora en la que se envio el mensaje',
     
@@ -155,7 +155,8 @@ FROM
     INFORMATION_SCHEMA.COLUMNS
 WHERE 
     TABLE_SCHEMA = 'db_videopost' AND
-    TABLE_NAME = 'usuarios';
+    TABLE_NAME = 'mensajes';
+    
     
 #VISTA PARA LA API
 create view vw_ListaUsuariosAPI as
