@@ -16,6 +16,11 @@
     </style>
 </head>
 <body>
+
+<?php 
+    session_start();
+?>
+
 <div class="container">
         <div class="logIn-container">
             <h1>INICIAR SESION</h1>
@@ -36,6 +41,16 @@
         </div>
         
 </div>
+
+<script>
+    <?php
+        if (isset($_SESSION['error'])) {
+            echo 'alert("' . $_SESSION['error'] . '");';
+            unset($_SESSION['error']);
+        }
+    ?>
+</script>
+
 </body>
 
 <script src="/src/views/login/login.js"></script>

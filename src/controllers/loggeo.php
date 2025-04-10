@@ -34,9 +34,11 @@ if ($result) {
         exit();
 
     }else{
-        echo 'Debuggeada coqueta';
+        $_SESSION['error'] = 'Contraseña incorrecta';
     }
 
 } else {
-    echo "Usuario o contraseña incorrectos.";
+    $_SESSION['error'] = 'Usuario no encontrado';
 }
+
+header('Location: /');
