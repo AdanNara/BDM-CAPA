@@ -6,11 +6,12 @@ create table usuarios(
 	username varchar(20) primary key COMMENT 'Identificador unico del usuario',
 	nombre varchar(50) not null COMMENT 'Nombre completo del usuario',
 	correoE varchar(100) not null unique COMMENT 'Email del usuario, irrepetible',
-	contrasena varchar(20) not null ,
+	contrasena varchar(255) not null ,
 	discordUser varchar(40) COMMENT 'Perfil del usuario en la plataforma Discord',
 	tipoUsuario tinyint default 0 COMMENT 'tipo de usuario: 0 - normal, 1 - administrador',
 	fotoPerfil mediumblob 
 );
+
 
 create table videojuegos(
 	idVideojuego int primary key auto_increment,
@@ -83,6 +84,9 @@ update usuarios
 set fotoPerfil = null
 where username = 'jorgepablo23';
 
+#	usuario123 = 'Contrasena1'
+#	usuariodeprueba = 'Pruebita123'
+
 #SP PARA GESTION DE USUARIOS
 DELIMITER &&
 CREATE PROCEDURE sp_GestionUsuarios(
@@ -90,7 +94,7 @@ CREATE PROCEDURE sp_GestionUsuarios(
     pusername varchar(20),
     pnombre varchar(50),
     pcorreoE varchar(50), 
-	pcontrasena varchar(20),
+	pcontrasena varchar(255),
 	pdiscordUser varchar(40),
 	pfotoPerfil mediumblob 
 )
@@ -103,9 +107,9 @@ BEGIN
     
     #2 INICIAR SESION
     IF accion = 2 THEN
-		SELECT username, nombre, correoE, tipoUsuario
+		SELECT username, nombre, correoE, tipoUsuario, contrasena
         FROM usuarios 
-        WHERE username = pusername AND contrasena = pcontrasena;
+        WHERE username = pusername;
     END IF;
     
     #3 MODIFICAR INFOUSUARIO

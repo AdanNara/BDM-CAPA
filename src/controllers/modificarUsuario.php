@@ -13,13 +13,15 @@ $nombreCompleto = $_POST['nombre'];
 $correoE = $_POST['email'];
 $password = $_POST['password'];
 
+$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
 $query = 'CALL sp_GestionUsuarios(3,:username,:nombreCompleto,:correoE,:password, null, null)';
 
 $dbConnection->queryInsert($query,[
     ':username' => $username,
     ':nombreCompleto' => $nombreCompleto,
     ':correoE' => $correoE,
-    ':password' => $password
+    ':password' => $hashedPassword
 ]);
 
 $_SESSION['usuarioLoggeado']['username'] = $username;
