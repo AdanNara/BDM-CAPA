@@ -1,9 +1,14 @@
 .content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    
 
     font-size: 25px;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+
 }
 
 /*Este lo puse nomas para guiarme hasta donde llega cada cosa*/
@@ -17,12 +22,13 @@
 
 #contenedor-chat{
     display: flex;
+    flex-direction: row;
     gap:10px;
     background-color: rgba(150, 150, 150, 0.15);
-    width: 80%;
+    width: 100%;
     padding: 20px;
     border-radius: 20px;
-    height: 85%;
+    height: 85vh;
 }
 
 /* PARTE IZQUIERDA*/

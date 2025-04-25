@@ -25,12 +25,13 @@
 
     ?>
 
-
-<div class="container">
-    
     <?php
     require 'src/views/partials/asidebar.php'
     ?>
+
+<div class="container">
+    
+
 
 
     <main class="content">
@@ -85,12 +86,14 @@
         </div>
     </main>
 
-    <?php
-    require 'src/views/partials/asideTopUsers.php'
-    ?>
+
 
 
 </div>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
 
 <div id="abrirBuzon" class="buttonBuzon">
     <i class='bx bx-message'></i>

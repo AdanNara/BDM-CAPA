@@ -25,11 +25,13 @@
 
     ?>
 
-<div class="container">
-    
     <?php
     require 'src/views/partials/asidebar.php'
     ?>
+
+<div class="container">
+    
+
 
     <main class="content">
 

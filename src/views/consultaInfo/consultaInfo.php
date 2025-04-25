@@ -24,12 +24,12 @@
 
         ?>
 
-<div class="container">
-    
-    <?php
+<?php
     require 'src/views/partials/asidebar.php'
     ?>
 
+<div class="container">
+    
     <main class="content">
 
         <h1>Seleccione la información que desee consultar</h1>
@@ -65,13 +65,11 @@
         </div>
     </main>
 
-    <?php
-    require 'src/views/partials/asideTopUsers.php'
-    ?>
-
-
 </div>
 
+<?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
 
 <div id="abrirBuzon" class="buttonBuzon">
     <i class='bx bx-message'></i>

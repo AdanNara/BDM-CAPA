@@ -24,11 +24,13 @@
 
 ?>
 
+<?php
+    require 'src/views/partials/asidebar.php'
+?>
+
+
 <div class="container">
     
-    <?php
-    require 'src/views/partials/asidebar.php'
-    ?>
 
     
 
@@ -70,11 +72,13 @@
 
     </main>
 
-    <?php
-    require 'src/views/partials/asideTopUsers.php'
-    ?>
+
 
 </div>
+
+<?php
+    require 'src/views/partials/asideTopUsers.php'
+?>
 
 
 <div id="abrirBuzon" class="buttonBuzon">

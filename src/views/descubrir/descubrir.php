@@ -26,11 +26,13 @@
 
     ?>
 
-<div class="container">
     
     <?php
-    require 'src/views/partials/asidebar.php'
+     require 'src/views/partials/asidebar.php'
     ?>
+
+<div class="container">
+
 
     <main class="content">
         
@@ -78,11 +80,11 @@
 
     </main>
 
+</div>
+
     <?php
     require 'src/views/partials/asideTopUsers.php'
     ?>
-
-</div>
 
 
 <div id="abrirBuzon" class="buttonBuzon">
