@@ -3,7 +3,11 @@ let botonGetUsers = document.getElementById("button-getUsuarios");
 
 botonGetUsers.onclick = function () { 
 
+<<<<<<< HEAD
     fetch("src/api/getinfouser.php")
+=======
+    fetch("/apiGetUser")
+>>>>>>> 3527e075ee81391b81da04cf23a0038658320190
     .then(response => response.json())
     .then(data => {
         if(data.status == "SUCCESS"){
