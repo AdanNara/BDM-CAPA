@@ -11,4 +11,7 @@ SELECT * FROM videojuegos;
 INSERT INTO videojuegos (nombre, caratula)
 VALUES ('Marvel Rivals', 'https://static-cdn.jtvnw.net/ttv-boxart/1264310518_IGDB-285x380.jpg' ),
 ('Minecraft','https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-285x380.jpg'),
-('Elden Ring', 'https://static-cdn.jtvnw.net/ttv-boxart/512953_IGDB-285x380.jpg');
+('Elden Ring', 'https://static-cdn.jtvnw.net/ttv-boxart/512953_IGDB-285x380.jpg'),
+('Counter Strike 2','https://static-cdn.jtvnw.net/ttv-boxart/32399-285x380.jpg'),
+('Red Dead Redemption 2','https://static-cdn.jtvnw.net/ttv-boxart/493959_IGDB-285x380.jpg'),
+('Resident Evil 4','https://static-cdn.jtvnw.net/ttv-boxart/322503446_IGDB-285x380.jpg');

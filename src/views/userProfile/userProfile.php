@@ -30,9 +30,6 @@
     ?>
 
 <div class="container">
-    
-
-
 
     <main class="content">
         <div class="profile-container">
@@ -85,9 +82,6 @@
            
         </div>
     </main>
-
-
-
 
 </div>
 

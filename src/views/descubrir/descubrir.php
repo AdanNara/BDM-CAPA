@@ -33,10 +33,9 @@
 
 <div class="container">
 
-
     <main class="content">
         
-        <div class="categories">
+        <div id="gamecard-contenedor" class="categories">
             
             <div class="game-card"> 
     
