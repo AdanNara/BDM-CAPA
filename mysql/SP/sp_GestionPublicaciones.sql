@@ -16,6 +16,7 @@
 DELIMITER &&
 CREATE PROCEDURE sp_GestionPublicaciones(
 	accion tinyint,
+    pid int,
     ptitulo varchar(50),
     pdescripcion text,
     pfoto mediumblob,
@@ -35,12 +36,39 @@ BEGIN
 	IF accion = 2 THEN
 		INSERT INTO publicaciones (titulo, descripcion, foto, video, usuario, videojuego)
         VALUES (ptitulo, pdescripcion, null, pvideo, pusuario, pvideojuego);
-
 	END IF;
     
+    #3 MOSTRAR PUBLICACIONES 
+    IF accion = 3 THEN
+		SELECT 
+		p.idPublicacion as ID,
+		p.titulo as Titulo,
+		p.descripcion as Descr,
+		p.video as Video,
+		p.calificacion as Calif,
+		j.nombre as Videojuego,
+		u.username as Usuario
+		FROM publicaciones as p
+		JOIN videojuegos as j
+			ON p.videojuego = j.idVideojuego
+		JOIN usuarios as u
+			ON p.usuario = u.username;
+	END IF;
+    
+    #4 MOSTRAR LA IMAGEN DE CADA PUBLICACION
+    IF accion = 4 THEN
+			SELECT foto 
+            FROM publicaciones
+            WHERE idPublicacion = pid;
+    END IF;
+    
+        
 END &&
 DELIMITER ;
 
+SELECT * FROM publicaciones;
+
+CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null);
 
 SHOW CREATE PROCEDURE sp_GestionPublicaciones;
 DROP PROCEDURE sp_GestionPublicaciones;

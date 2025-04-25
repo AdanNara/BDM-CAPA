@@ -25,48 +25,63 @@
 ?>
 
 <?php
-    require 'src/views/partials/asidebar.php'
+    require 'src/views/partials/asidebar.php';
+    $listaPublicaciones = require 'src/controllers/mostrarPublicaciones.php';
+    //require 'src/controllers/functions.php';
+    //dd($listaPublicaciones);
 ?>
 
 
 <div class="container">
-    
-
-    
 
     <main class="content">
         
         <div class="feed-container">
-            <div class="post-container">
+
+            <?php foreach ($listaPublicaciones as $publicacion) { ?>
+              
+                <div class="post-container" data-ID="<?= htmlspecialchars($publicacion['ID']) ?>">
                 <!-- Cabecera -->
                 <div class="post-header">
                     <div class="user-data">
                         <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                        <p class="username">Nombre de Usuario</p>
+                        <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?></p>
                     </div>
                     <div class="post-category">
-                        <p class="category-name"> nombre del videojuego</p>
+                        <p class="category-name"> <?= htmlspecialchars($publicacion['Videojuego']) ?> </p>
                     </div>
                 </div>
         
                 <!-- Contenido -->
                 <div class="post-content">
-                    <h2 class="post-title">Título de la Publicación</h2>
-                    <p class="post-description">Descripción de la publicación este es un texto generico para comprobar el tamaño del contenedor de la publicacion y ver que no se este saliendo del margen o algo por el estilo, solo estoy probando cositas uwu</p>
+                    <h2 class="post-title"> <?= htmlspecialchars($publicacion['Titulo']) ?></h2>
+                    <p class="post-description">  <?= htmlspecialchars($publicacion['Descripcion']) ?></p>
                 </div>
         
                 <!-- Multimedia -->
                 <div class="post-media">
                     
+                    <?php if($publicacion['Video']==null){ ?>
+                        <img id="post-image" src="src/controllers/imagenDePublicacion.php?id=<?= $publicacion['ID']?>" alt="Imagen de la publicación">
+                    <?php }else{ ?>
+                        <video id="post-video" controls>
+                            <source src="<?= htmlspecialchars($publicacion['Video']) ?>" type="video/mp4">
+                        </video>
+                    <?php } ?>
+                    
                 </div>
         
                 <!-- Acciones -->
                 <div class="post-actions">
-                    <p class="rating">999</p>
+                    <p class="rating">  <?= htmlspecialchars($publicacion['Calif']) ?> </p>
                     <i class='bx bx-upvote bx-sm up-arrow' ></i>
                     <i class='bx bx-downvote bx-sm down-arrow' ></i>
                 </div>
             </div>
+
+            <?php } ?>
+        
+
         </div>
         
 

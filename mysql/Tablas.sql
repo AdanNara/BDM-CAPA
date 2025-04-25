@@ -67,6 +67,7 @@ desc usuarios;
 select * from publicaciones;
 truncate table publicaciones;
 drop table publicaciones;
+desc publicaciones;
 
 select * from reportes;
 truncate table reportes;

@@ -17,7 +17,7 @@ $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
 if($extension == 'jpg' || $extension == 'jpeg'){ //SUBIR CON IMAGEN
 
     $imagen = file_get_contents($_FILES['media-File']['tmp_name']);
-    $query = 'CALL sp_GestionPublicaciones(1, :titulo, :descripcion, :foto, null, :usuario, :videojuego)';
+    $query = 'CALL sp_GestionPublicaciones(1, null, :titulo, :descripcion, :foto, null, :usuario, :videojuego)';
 
     $stmt = $dbConnection->connection->prepare($query);
 
@@ -46,7 +46,7 @@ if($extension == 'jpg' || $extension == 'jpeg'){ //SUBIR CON IMAGEN
     $ruta_completa_video_db = $rutaDB . $archivo['name'] . "." . $extension;
     move_uploaded_file($archivo['tmp_name'], $ruta_completa_video);
 
-    $query = 'CALL sp_GestionPublicaciones(2, :titulo, :descripcion, null, :video, :usuario, :videojuego)';
+    $query = 'CALL sp_GestionPublicaciones(2, null, :titulo, :descripcion, null, :video, :usuario, :videojuego)';
 
     $dbConnection->queryInsert($query,[
         ':titulo' => $titulo,

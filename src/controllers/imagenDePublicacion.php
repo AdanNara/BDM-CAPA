@@ -1,17 +1,15 @@
 <?php
 
 require '../classes/Database.php';
-
 $config = require '../classes/configDB.php';
-
 $dbConnection = new Database($config['database']);
 
 $id = $_GET['id'];
 
-$query = 'CALL sp_GestionUsuarios(5, :username , null, null, null, null, null)';
+$query = 'CALL sp_GestionPublicaciones(4, :id , null, null, null, null, null, null);';
 
 $foto = $dbConnection->queryTraerFoto($query,[
-    'username' => $id
+    ':id' => $id
 ]);
 
 if($foto!==null && $foto !== false){
