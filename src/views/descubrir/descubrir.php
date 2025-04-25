@@ -32,8 +32,6 @@
     require 'src/views/partials/asidebar.php'
     ?>
 
-        
-    </aside>
     <main class="content">
         
         <div class="categories">
@@ -41,9 +39,7 @@
             <div class="game-card"> 
     
                 <img src="https://static-cdn.jtvnw.net/ttv-boxart/1264310518_IGDB-285x380.jpg" alt="imagen juego 1">
-                
-                    <p>GAME-NAME</p>
-                
+                <p>GAME-NAME</p>
                 
             </div>
             <div class="game-card"> 
@@ -81,6 +77,11 @@
         </div>
 
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
 </div>
 
 

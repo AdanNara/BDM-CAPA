@@ -1,7 +1,7 @@
 <?php 
 
 class Database {
-    private $connection;
+    public $connection;
 
     public function __construct($dsn){
         $stringDsn = 'mysql:'.http_build_query($dsn,'',';');
@@ -17,6 +17,13 @@ class Database {
     public function queryInsert($query,$args){
         $statement = $this->connection->prepare($query);
         $statement->execute($args);
+    }
+
+    public function queryTraerFoto($query,$args){
+        $statement = $this->connection->prepare($query);
+        $statement->execute($args);
+        $foto = $statement->fetchColumn();
+        return $foto;
     }
     
 }

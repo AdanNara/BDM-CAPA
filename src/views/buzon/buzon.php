@@ -74,7 +74,10 @@
             
         </div>
     </main>
-
+    
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
 
     <div id="abrirBuzon" class="buttonBuzon">
         <i class='bx bx-message'></i>

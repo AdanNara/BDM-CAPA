@@ -1,22 +1,3 @@
-create database db_videopost;
-
-use db_videopost;
-
-create table usuarios(
-	username varchar(20) primary key COMMENT 'Identificador unico del usuario',
-	nombre varchar(50) not null COMMENT 'Nombre completo del usuario',
-	correoE varchar(100) not null unique COMMENT 'Email del usuario, irrepetible',
-	contrasena varchar(20) not null ,
-	discordUser varchar(40) COMMENT 'Perfil del usuario en la plataforma Discord',
-	tipoUsuario tinyint default 0 COMMENT 'tipo de usuario: 0 - normal, 1 - administrador',
-	fotoPerfil mediumblob 
-);
-
-select * from usuarios;
-truncate table usuarios;
-drop table usuarios;
-desc usuarios;
-
 #SP PARA GESTION DE USUARIOS
 DELIMITER &&
 CREATE PROCEDURE sp_GestionUsuarios(
@@ -24,7 +5,7 @@ CREATE PROCEDURE sp_GestionUsuarios(
     pusername varchar(20),
     pnombre varchar(50),
     pcorreoE varchar(50), 
-	pcontrasena varchar(20),
+	pcontrasena varchar(255),
 	pdiscordUser varchar(40),
 	pfotoPerfil mediumblob 
 )
@@ -37,9 +18,9 @@ BEGIN
     
     #2 INICIAR SESION
     IF accion = 2 THEN
-		SELECT username, nombre, correoE, tipoUsuario
+		SELECT username, nombre, correoE, tipoUsuario, contrasena
         FROM usuarios 
-        WHERE username = pusername AND contrasena = pcontrasena;
+        WHERE username = pusername;
     END IF;
     
     #3 MODIFICAR INFOUSUARIO
@@ -52,6 +33,20 @@ BEGIN
 		WHERE username = pusername;
 	END IF; 
     
+    #4 SUBIR FOTO DE PERFIL
+    IF accion = 4 THEN
+		UPDATE usuarios
+			SET fotoPerfil = pfotoPerfil
+		WHERE username = pusername;
+    END IF;
+    
+    #5 TRAER FOTO DE PERFIL
+	IF accion = 5 THEN
+			SELECT fotoPerfil 
+            FROM usuarios
+            WHERE  username = pusername;
+    END IF;
+    
 END &&
 DELIMITER ;
 
@@ -61,4 +56,3 @@ DROP PROCEDURE sp_GestionUsuarios;
 #EJEMPLO DE EJECUCCION
 CALL sp_GestionUsuarios(1,'usuario123','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
 CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
-

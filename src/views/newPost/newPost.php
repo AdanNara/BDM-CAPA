@@ -33,43 +33,64 @@
 
 
     <main class="content">
+    <form id="form-Publicar" action="src/controllers/crearPublicacion.php" method="post" enctype="multipart/form-data">
         <div class="newPost-container">
+ 
              <!-- Cabecera -->
             <div class="post-header">
                 <div class="user-data">
                     <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                    <p class="username">Nombre de Usuario</p>
+                    <p class="username"> <?= htmlspecialchars($usuarioLoggeado['username']) ?></p>
                 </div>
                 <div class="newPost-category">
-                    <select name="categories" id="categories-newPost">
-                        <option value="" disabled selected>Selecciona una categoria</option>
-                        <option value="marvelRivals">MARVEL RIVALS</option>
-                        <option value="cyberpunk2077">CYBERPUNK 2077</option>
-                        <option value="grandTheftAutoV">GRAND THEFT AUTO V</option>
-                        <option value="warzone">WARZONE</option>
+                    <select name="categories" id="categories-newPost" required>
+                    
+                        <!-- Opciones de categorías -->
+
                       </select>
                 </div>
             </div>
+
+
              <!-- Contenido -->
              <div class="post-content">
-                <textarea name="title" id="in_title" placeholder="Titulo de la publicación" ></textarea>
-                <textarea name="description" id="in_description" placeholder="Descripción de la publicación"></textarea>
+                <textarea name="title" id="in_title" placeholder="Titulo de la publicación" required ></textarea>
+                <textarea name="description" id="in_description" placeholder="Descripción de la publicación" required></textarea>
             </div>
             <!-- Multimedia -->
             <div class="post-media">
 
-                <label for="input-image">
-                    <i class='bx bxs-image-add icono-imagen'></i>
-                </label>
-                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-image">
-                <p>Cargar multimedia</p>
+                <img id="preview-image"></img>
+                <video id="preview-video" controls></video>
+
+
+                <div id="botones-subir-media"> 
+                    <label for="input-image">
+                        <i class='bx bxs-image-add icono-imagen'></i>
+                    </label> 
+                    <input type="file" name="media-File" accept=".jpg, .jpeg, .mp4" id="input-image" required>
+                </div>
+
+                <div id="botones-eliminar-media">     
+                    <i class='bx bx-trash-alt'></i>
+                </div>    
 
             </div>
+
+
             <div class="post-actions">
                 <button id="publishPost">Publicar</button>
             </div>
+        
         </div>
+        <form id="form-Publicar" action="hola" method="post">
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
+
 </div>
 
 <div id="abrirBuzon" class="buttonBuzon">

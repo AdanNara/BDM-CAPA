@@ -1,0 +1,178 @@
+create database db_videopost;
+
+use db_videopost;
+
+create table usuarios(
+	username varchar(20) primary key COMMENT 'Identificador unico del usuario',
+	nombre varchar(50) not null COMMENT 'Nombre completo del usuario',
+	correoE varchar(100) not null unique COMMENT 'Email del usuario, irrepetible',
+	contrasena varchar(255) not null ,
+	discordUser varchar(40) COMMENT 'Perfil del usuario en la plataforma Discord',
+	tipoUsuario tinyint default 0 COMMENT 'tipo de usuario: 0 - normal, 1 - administrador',
+	fotoPerfil mediumblob 
+);
+
+
+create table videojuegos(
+	idVideojuego int primary key auto_increment,
+    nombre varchar(100) not null COMMENT 'Nombre completo del titulo del videojuego',
+    caratula text not null COMMENT 'URL a la imagen del videojuego'
+);
+
+create table publicaciones(
+	idPublicacion int primary key auto_increment,
+    titulo varchar(50) not null COMMENT 'Titulo de la publicacion obligatoria',
+    descripcion text COMMENT 'Texto donde el usuario explica su publicacion, opcional',
+    foto mediumblob COMMENT 'Foto que acompaña la publicacion, opcional (foto o video solo 1)',
+    video varchar(255) COMMENT 'Path del video que acompaña la publicacion, opcional (foto o video solo 1)',
+    upvote int default 0 COMMENT  'Votos positivos que tiene la publicacion',
+    downvote int default 0 COMMENT 'Votos negativos que tiene la publicacion',
+    calificacion int default 0 COMMENT 'Calificacion calculada restando el valor downvote a upvote',
+    fechahora datetime default now() COMMENT 'Fecha y hora cuando se realizo la publicacion',
+    usuario varchar(20) not null COMMENT 'Llave foranea a usuarios',
+    videojuego int COMMENT 'Llave foranea a videojuegos',
+    
+    foreign key (usuario) references usuarios(username),
+    foreign key (videojuego) references videojuegos(idVideojuego)
+); 
+
+create table reportes(
+	idReporte int primary key auto_increment,
+    tipo varchar(50) not null COMMENT 'De que trata el reporte, queja, sugerencia, reporte de bug',
+    descripcion text not null COMMENT 'Explicacion del usuario sobre su reporte',
+	fechahora datetime default now() COMMENT 'Fecha y hora cuando se realizo el reporte',
+    estado int default 0 COMMENT 'Estado actual del reporte: 0=Pendiente, 1=Revisado',
+	usuario varchar(20) not null COMMENT 'Llave foranea a usuarios',
+
+    foreign key (usuario) references usuarios(username)
+);
+
+create table mensajes(
+	idMensaje int primary key auto_increment,
+    remitente varchar(20) not null COMMENT 'FK de Usuario que envia el mensaje',
+	destinatario varchar(20) not null COMMENT 'FK de Usuario que recibe el mensaje',
+	mensaje text not null ,
+	fechahora datetime default now() COMMENT 'Fecha y hora en la que se envio el mensaje',
+    
+    foreign key (remitente) references usuarios(username),
+	foreign key (destinatario) references usuarios(username)
+);
+
+
+select * from usuarios;
+truncate table usuarios;
+drop table usuarios;
+desc usuarios;
+
+select * from publicaciones;
+truncate table publicaciones;
+drop table publicaciones;
+
+select * from reportes;
+truncate table reportes;
+drop table reportes;
+
+select * from videojuegos;
+truncate table videojuegos;
+drop table videojuegos;
+
+select * from mensajes;
+truncate table mensajes;
+drop table mensajes;
+
+update usuarios 
+set fotoPerfil = null
+where username = 'jorgepablo23';
+
+#	usuario123 = 'Contrasena1'
+#	usuariodeprueba = 'Pruebita123'
+
+#SP PARA GESTION DE USUARIOS
+DELIMITER &&
+CREATE PROCEDURE sp_GestionUsuarios(
+	accion tinyint,
+    pusername varchar(20),
+    pnombre varchar(50),
+    pcorreoE varchar(50), 
+	pcontrasena varchar(255),
+	pdiscordUser varchar(40),
+	pfotoPerfil mediumblob 
+)
+BEGIN
+	#1 REGISTRAR USUARIO
+	IF accion = 1 THEN
+		INSERT INTO usuarios (username, nombre, correoE, contrasena)
+		VALUES (pusername, pnombre, pcorreoE, pcontrasena);
+	END IF;
+    
+    #2 INICIAR SESION
+    IF accion = 2 THEN
+		SELECT username, nombre, correoE, tipoUsuario, contrasena
+        FROM usuarios 
+        WHERE username = pusername;
+    END IF;
+    
+    #3 MODIFICAR INFOUSUARIO
+    IF accion = 3 THEN
+		UPDATE usuarios
+			SET username = pusername,
+            nombre = pnombre,
+            correoE = pcorreoE,
+            contrasena = pcontrasena
+		WHERE username = pusername;
+	END IF; 
+    
+    #4 SUBIR FOTO DE PERFIL
+    IF accion = 4 THEN
+		UPDATE usuarios
+			SET fotoPerfil = pfotoPerfil
+		WHERE username = pusername;
+    END IF;
+    
+    #5 TRAER FOTO DE PERFIL
+	IF accion = 5 THEN
+			SELECT fotoPerfil 
+            FROM usuarios
+            WHERE  username = pusername;
+    END IF;
+    
+END &&
+DELIMITER ;
+
+SHOW CREATE PROCEDURE sp_GestionUsuarios;
+DROP PROCEDURE sp_GestionUsuarios;
+
+#EJEMPLO DE EJECUCCION
+CALL sp_GestionUsuarios(1,'usuario123','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
+CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
+
+#DICCIONARIO DE DATOS
+SELECT 
+    COLUMN_NAME AS 'Columna',
+    COLUMN_TYPE AS 'Tipo de dato',
+    IS_NULLABLE AS 'Acepta NULL',
+    COLUMN_KEY AS 'Clave',
+    COLUMN_DEFAULT AS 'Valor por defecto',
+    EXTRA AS 'Extra',
+    COLUMN_COMMENT AS 'Comentario'
+FROM 
+    INFORMATION_SCHEMA.COLUMNS
+WHERE 
+    TABLE_SCHEMA = 'db_videopost' AND
+    TABLE_NAME = 'mensajes';
+    
+    
+#VISTA PARA LA API
+create view vw_ListaUsuariosAPI as
+SELECT 
+    username, 
+    nombre, 
+    correoE, 
+    CASE 
+        WHEN tipoUsuario = 0 THEN 'USUARIO'
+        WHEN tipoUsuario = 1 THEN 'ADMINISTRADOR'
+    END AS tipoUsuario
+FROM usuarios;
+
+SELECT * FROM vw_ListaUsuariosAPI;
+

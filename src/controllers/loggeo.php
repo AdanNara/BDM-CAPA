@@ -12,25 +12,33 @@ $dbConnection = new Database($config['database']);
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = 'SELECT nombre, correoE, tipoUsuario FROM usuarios WHERE username = :username AND contrasena = :password';
-$query = 'CALL sp_GestionUsuarios(2,:username,null,null,:password, null, null)';
+//$query = 'SELECT nombre, correoE, tipoUsuario, fotoPerfil FROM usuarios WHERE username = :username AND contrasena = :password';
+$query = 'CALL sp_GestionUsuarios(2,:username,null,null, null, null, null)';
 
 $result = $dbConnection->query($query,[
-    ':username' => $username,
-    ':password'=> $password
+    ':username' => $username
 ]);
 
 if ($result) {
-    $_SESSION['usuarioLoggeado'] = [
-        'username' => $username,
-        'nombre' => $result[0]->nombre,
-        'correoE' => $result[0]->correoE,
-        'contrasena' => $password,
-        'tipoUsuario' => $result[0]->tipoUsuario
-    ];
 
-    header('Location: /home'); 
-    exit();
+    if($password == $result[0]->contrasena || password_verify($password,$result[0]->contrasena)){
+
+        $_SESSION['usuarioLoggeado'] = [
+            'username' => $username,
+            'nombre' => $result[0]->nombre,
+            'correoE' => $result[0]->correoE,
+            'contrasena' => $password,
+            'tipoUsuario' => $result[0]->tipoUsuario
+        ];
+        header('Location: /home'); 
+        exit();
+
+    }else{
+        $_SESSION['error'] = 'Contraseña incorrecta';
+    }
+
 } else {
-    echo "Usuario o contraseña incorrectos.";
+    $_SESSION['error'] = 'Usuario no encontrado';
 }
+
+header('Location: /');

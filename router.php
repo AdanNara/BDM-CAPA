@@ -13,6 +13,7 @@ $routes = [
     '/consultar' => 'src/views/consultaInfo/consultaInfo.php',
     '/buzon' => 'src/views/buzon/buzon.php',
     '/reportar' => 'src/views/newReport/newReport.php',
+    '/api' => 'src/views/apiFront/apiFront.php'
 ];
 
 

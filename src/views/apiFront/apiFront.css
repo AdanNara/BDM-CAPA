@@ -1,7 +1,18 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .content {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
 }
 .newPost-container {
     display: grid;
@@ -12,11 +23,11 @@
         "content"
         "media"
         "actions";
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(150, 150, 150, 0.15);
         border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 20px;
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
+    max-width: 1000px;
     width: 100%;
     padding: 20px;
     row-gap: 20px;
@@ -27,8 +38,9 @@
 .post-header {
     grid-area: header;
     display: flex;
-    justify-content: space-between;
     font-size: clamp(15px, 2vw, 20px);
+    align-items: center;
+    justify-content: center;
 }
 
 .post-header select{
@@ -65,11 +77,10 @@
 .post-media {
     grid-area: media;
     width: 100%; 
-    background-color: rgba(150, 150, 150, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgb(75, 75, 75);
     aspect-ratio: 3/2;
-    border-radius: 10px;
-    
+    border-radius: 8px;
+    border: 2px solid rgba(201, 201, 201, 0.248);
     place-self: center; /* Solo esta sección se centra */
     display: flex;
     flex-direction: column;
@@ -90,39 +101,30 @@
 }
 
 .post-actions{
-    grid-area:actions;
     display: flex;
     justify-content: center;
 }
 
-#in_title, #in_description{
-padding: 10px;
-box-sizing: border-box;
+#in_description{
+    height: 500px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-#preview-image{
-    display: none; 
-    max-height: 350px;
-    border-radius: 10px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    margin: 20px 0;
 }
-
-#preview-video{
-    display: none; 
-    max-height: 350px;
-    border-radius: 10px;
+th, td {
+    border: 2px solid rgb(134, 134, 134);
+    
+    padding: 8px;
+    text-align: left;
+    font-size: 25px;
+    
 }
-
-#botones-eliminar-media{
-    cursor: pointer;
-    display: none;
-    margin-top: 10px;
-    background-color:#0f3d5a;
-    border-radius: 5px;
-    padding: 5px;
-    display: none;
-
-}
-
-#botones-eliminar-media:hover{
-    background-color: #185b85;
+th {
+    background-color: rgb(12, 56, 92);
 }

@@ -30,6 +30,8 @@
     require 'src/views/partials/asidebar.php'
     ?>
 
+    
+
     <main class="content">
         
         <div class="feed-container">
@@ -67,6 +69,11 @@
         
 
     </main>
+
+    <?php
+    require 'src/views/partials/asideTopUsers.php'
+    ?>
+
 </div>
 
 
