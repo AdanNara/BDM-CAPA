@@ -27,8 +27,7 @@
 <?php
     require 'src/views/partials/asidebar.php';
     $listaPublicaciones = require 'src/controllers/mostrarPublicaciones.php';
-    //require 'src/controllers/functions.php';
-    //dd($listaPublicaciones);
+    $filter = $_GET['ID'] ?? null;
 ?>
 
 
@@ -37,6 +36,12 @@
     <main class="content">
         
         <div class="feed-container">
+
+            <?php if($filter){ ?>
+
+                <h1>Publicaciones de <?= htmlspecialchars($_GET['Nombre']) ?> </h1>
+                
+            <?php } ?>
 
             <?php foreach ($listaPublicaciones as $publicacion) { ?>
               

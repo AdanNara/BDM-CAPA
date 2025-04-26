@@ -26,9 +26,9 @@
 
     ?>
 
-    
     <?php
-     require 'src/views/partials/asidebar.php'
+    require 'src/views/partials/asidebar.php';
+
     ?>
 
 <div class="container">
@@ -37,43 +37,11 @@
         
         <div id="gamecard-contenedor" class="categories">
             
+           <!-- GAMECARD EJEMPLO
             <div class="game-card"> 
-    
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/1264310518_IGDB-285x380.jpg" alt="imagen juego 1">
-                <p>GAME-NAME</p>
-                
-            </div>
-            <div class="game-card"> 
-                
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-285x380.jpg" alt="imagen juego 2">
-                <p>GAME-NAME</p>
-            </div>
-            <div class="game-card"> 
-                
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/493959_IGDB-285x380.jpg" alt="imagen juego 2">
-                <p>GAME-NAME</p>
-            </div>
-            <div class="game-card"> 
-                
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/322503446_IGDB-285x380.jpg" alt="imagen juego 2">
-                <p>GAME-NAME</p>
-            </div>
-            <div class="game-card"> 
-                
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/32399-285x380.jpg" alt="imagen juego 2">
-                <p>GAME-NAME</p>
-            </div>
-
-            <div class="game-card"> 
-                
-                <img src="https://static-cdn.jtvnw.net/ttv-boxart/32399-285x380.jpg" alt="imagen juego 2">
-                <p>GAME-NAME</p>
-            </div>
-            <div class="game-card"> 
-                
                 <img src="https://static-cdn.jtvnw.net/ttv-boxart/512953_IGDB-285x380.jpg" alt="imagen juego 2">
                 <p>GAME-NAME</p>
-            </div>
+            </div>-->
             
         </div>
 

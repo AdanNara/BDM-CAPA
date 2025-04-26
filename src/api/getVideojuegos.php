@@ -1,9 +1,7 @@
 <?php 
 
 header("Content-Type: application/json");
-
 require '../classes/Database.php';
-
 $config = require '../classes/configDB.php';
 
 $accion = $_GET['accion'];

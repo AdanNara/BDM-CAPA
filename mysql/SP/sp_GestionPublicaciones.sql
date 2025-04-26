@@ -62,13 +62,34 @@ BEGIN
             WHERE idPublicacion = pid;
     END IF;
     
+	#5 MOSTRAR PUBLICACIONES CON FILTRO DE CATEGORIA
+    IF accion = 5 THEN
+		SELECT 
+		p.idPublicacion as ID,
+		p.titulo as Titulo,
+		p.descripcion as Descr,
+		p.video as Video,
+		p.calificacion as Calif,
+		j.nombre as Videojuego,
+		u.username as Usuario
+		FROM publicaciones as p
+			JOIN videojuegos as j
+				ON p.videojuego = j.idVideojuego
+			JOIN usuarios as u
+				ON p.usuario = u.username
+		WHERE p.videojuego = pvideojuego;
+	END IF;
         
 END &&
 DELIMITER ;
 
 SELECT * FROM publicaciones;
+SELECT * FROM videojuegos;
+use db_videopost;
 
-CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null);
+
+CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null); #EJECUTA SIN FILTRO PARA INICIO
+CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, 2); #EJECUTA CON FILTRO PARA DESCUBRIR
 
 SHOW CREATE PROCEDURE sp_GestionPublicaciones;
 DROP PROCEDURE sp_GestionPublicaciones;
