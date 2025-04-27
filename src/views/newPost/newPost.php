@@ -31,9 +31,6 @@
 
 <div class="container">
     
-
-
-
     <main class="content">
     <form id="form-Publicar" action="src/controllers/crearPublicacion.php" method="post" enctype="multipart/form-data">
         <div class="newPost-container">
@@ -49,7 +46,7 @@
                     
                         <!-- Opciones de categorías -->
 
-                      </select>
+                    </select>
                 </div>
             </div>
 
@@ -85,7 +82,7 @@
             </div>
         
         </div>
-        <form id="form-Publicar" action="hola" method="post">
+
     </main>
 
 </div>

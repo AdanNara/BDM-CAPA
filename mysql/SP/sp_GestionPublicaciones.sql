@@ -52,7 +52,8 @@ BEGIN
 		JOIN videojuegos as j
 			ON p.videojuego = j.idVideojuego
 		JOIN usuarios as u
-			ON p.usuario = u.username;
+			ON p.usuario = u.username
+		ORDER BY p.fechahora desc;
 	END IF;
     
     #4 MOSTRAR LA IMAGEN DE CADA PUBLICACION
@@ -89,7 +90,7 @@ use db_videopost;
 
 
 CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null); #EJECUTA SIN FILTRO PARA INICIO
-CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, 2); #EJECUTA CON FILTRO PARA DESCUBRIR
+CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, 1); #EJECUTA CON FILTRO PARA DESCUBRIR
 
 SHOW CREATE PROCEDURE sp_GestionPublicaciones;
 DROP PROCEDURE sp_GestionPublicaciones;

@@ -22,7 +22,9 @@ END &&
 DELIMITER ;
 
 SHOW CREATE PROCEDURE sp_GestionVideojuegos;
-DROP PROCEDURE sp_GestionVideojuegos;
+DROP PROCEDURE sp_GestionVideojuegos; 
+
+
 
 #EJEMPLO DE EJECUCCION
 CALL sp_GestionVideojuegos(1); #TODOS LOS DATOS

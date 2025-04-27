@@ -27,7 +27,7 @@ if($extension == 'jpg' || $extension == 'jpeg'){ //SUBIR CON IMAGEN
     $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
     $stmt->bindParam(':videojuego', $videojuego, PDO::PARAM_STR);
     $stmt->execute();
-    header('Location: /');
+
     
 }elseif( $extension == 'mp4'){ //SUBIR CON VIDEO
 

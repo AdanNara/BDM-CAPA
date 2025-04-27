@@ -49,7 +49,7 @@
                 <!-- Cabecera -->
                 <div class="post-header">
                     <div class="user-data">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+                        <img src="src/controllers/mostrarImagen.php?id=<?= $publicacion['Usuario'] ?> " alt="Avatar" class="user-avatar">
                         <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?></p>
                     </div>
                     <div class="post-category">
@@ -86,10 +86,8 @@
 
             <?php } ?>
         
-
         </div>
         
-
     </main>
 
 
