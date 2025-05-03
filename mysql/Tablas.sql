@@ -85,6 +85,8 @@ update usuarios
 set fotoPerfil = null
 where username = 'jorgepablo23';
 
+
+
 #	usuario123 = 'Contrasena1'
 #	usuariodeprueba = 'Pruebita123'
 

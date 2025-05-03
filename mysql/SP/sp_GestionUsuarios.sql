@@ -46,6 +46,18 @@ BEGIN
             FROM usuarios
             WHERE  username = pusername;
     END IF;
+    #6 RANKING DE USUARIOS CON MAYOR NUMERO DE PUBLICACIONES
+    IF accion = 6 THEN
+		SELECT 
+			u.username AS NombreUsuario,
+			COUNT(*) AS TotalPublicaciones
+		FROM usuarios AS u
+		JOIN publicaciones AS p
+		ON u.username = p.usuario
+		GROUP BY u.username
+		ORDER BY TotalPublicaciones DESC
+		LIMIT 3;
+    END IF;
     
 END &&
 DELIMITER ;
@@ -54,5 +66,6 @@ SHOW CREATE PROCEDURE sp_GestionUsuarios;
 DROP PROCEDURE sp_GestionUsuarios;
 
 #EJEMPLO DE EJECUCCION
-CALL sp_GestionUsuarios(1,'usuario123','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
+CALL sp_GestionUsuarios(1,'a','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
 CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
+CALL sp_GestionUsuarios(6,null,null,null,null,null,null); #RANKING USUARIOS

@@ -82,7 +82,7 @@
     ?>
 
     <div id="abrirBuzon" class="buttonBuzon">
-        <i class='bx bx-message'></i>
+        <i class='bx bx-message-error' ></i>
     </div>
     
 

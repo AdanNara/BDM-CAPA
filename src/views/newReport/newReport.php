@@ -32,33 +32,38 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
     
 
     <main class="content">
-        <div class="newPost-container">
-             <!-- Cabecera -->
-            <div class="post-header">
-                <div class="user-data">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
-                    <p class="username">Nombre de Usuario</p>
+        <form id="form-Reporte" action="src/controllers/crearReporte.php" method="POST" enctype="multipart/form-data">
+            <div class="newPost-container">
+                <!-- Cabecera -->
+                <div class="post-header">
+                    <div class="user-data">
+                        <img id="avatar" src="src/controllers/mostrarImagen.php?id=<?= $usuarioLoggeado['username']?>" 
+                        alt="Avatar" class="user-avatar"
+                        onerror="this.onerror=null; this.src='resources/avatar.jpg';">
+                        <p class="username"> <?= htmlspecialchars($usuarioLoggeado['username']) ?></p>
+                    </div>
+                    <div class="newPost-category">
+                    
+                        <select name="categories" id="categories-newPost" required>
+                            <option value="" disabled selected>Selecciona una categoria</option>
+                            <option value="sugerencia">SUGERENCIA</option>
+                            <option value="bug">BUG</option>
+                            <option value="queja">QUEJA</option>
+                            <option value="otro">OTRO</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="newPost-category">
-                   
-                    <select name="categories" id="categories-newPost">
-                        <option value="" disabled selected>Selecciona una categoria</option>
-                        <option value="sugerencia">SUGERENCIA</option>
-                        <option value="reporte">REPORTE BUG</option>
-                        <option value="queja">QUEJA</option>
-                      </select>
+                <!-- Contenido -->
+                <div class="post-content">
+                    <h1>Reporte</h1>
+                    <textarea name="description" id="in_description" placeholder="Escriba su reporte aquí..."></textarea>
+                </div>
+                
+                <div class="post-actions">
+                    <button type="submit" id="publishReport">Enviar reporte</button>
                 </div>
             </div>
-             <!-- Contenido -->
-             <div class="post-content">
-                <h1>Reporte</h1>
-                <textarea name="description" id="in_description" placeholder="Escriba su reporte aquí..."></textarea>
-            </div>
-            
-            <div class="post-actions">
-                <button id="publishPost">Enviar reporte</button>
-            </div>
-        </div>
+        </form>
     </main>
 
 </div>
@@ -68,7 +73,7 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
     ?>
 
 <div id="abrirBuzon" class="buttonBuzon">
-    <i class='bx bx-message'></i>
+    <i class='bx bx-message-error' ></i>
 </div>
 
 

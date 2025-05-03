@@ -12,7 +12,8 @@ window.onload = function(){
     .then(response => response.json())
     .then(data => {
         if(data.status == "SUCCESS"){
-            let optionJuego = "<option disabled selected>Selecciona una categoria</option>";
+            let optionJuego = '<option value="" disabled selected>Selecciona una categoria</option>';
+            
 
             data.data.forEach(opcion => {
                 optionJuego += `<option value= ${opcion.ID}> 

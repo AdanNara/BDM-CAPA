@@ -38,7 +38,9 @@
              <!-- Cabecera -->
             <div class="post-header">
                 <div class="user-data">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar" class="user-avatar">
+                    <img id="avatar" src="src/controllers/mostrarImagen.php?id=<?= $usuarioLoggeado['username']?>" 
+                    alt="Avatar" class="user-avatar"
+                    onerror="this.onerror=null; this.src='resources/avatar.jpg';">
                     <p class="username"> <?= htmlspecialchars($usuarioLoggeado['username']) ?></p>
                 </div>
                 <div class="newPost-category">
@@ -84,6 +86,7 @@
         </div>
 
     </main>
+    </form>
 
 </div>
 
@@ -92,7 +95,7 @@
     ?>
 
 <div id="abrirBuzon" class="buttonBuzon">
-    <i class='bx bx-message'></i>
+    <i class='bx bx-message-error' ></i>
 </div>
 
 
