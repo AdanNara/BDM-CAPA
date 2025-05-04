@@ -29,6 +29,10 @@
     require 'src/views/partials/asidebar.php'
     ?>
 
+    <?php
+        $listaBuzon = require 'src/controllers/mostrarBuzon.php';
+    ?>
+
 <div class="container">
     
 
@@ -48,28 +52,29 @@
                             <th>ID</th>
                             <th>Tipo de Reporte</th>
                             <th>Descripción</th>
-                            <th>Fecha</th>
+                            <th>Usuario</th>
+                            <th>Fecha y hora</th>
                             <th>Estado</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($listaBuzon as $buzon){ ?>
                         <tr>
-                            <td>1</td>
-                            <td>Error</td>
-                            <td>El sistema no responde</td>
-                            <td>2025-03-06</td>
-                            <td>Pendiente</td>
+                            <td><?=$buzon['ID'] ?></td>
+                            <td><?=$buzon['Tipo'] ?></td>
+                            <td><?=$buzon['Descripcion'] ?></td>
+                            <td><?=$buzon['Usuario'] ?></td>
+                            <td><?=$buzon['FechaHora'] ?></td>
+                            <td><?php if($buzon['Estado']==1){ ?>
+                                    Completado
+                                <?php }else{ ?>
+                                    Pendiente
+                                <?php } ?>
+                            </td>
                             <td><button onclick="cambiarEstado(this)">Revisar</button></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Sugerencia</td>
-                            <td>Añadir modo nocturno</td>
-                            <td>2025-03-05</td>
-                            <td>Pendiente</td>
-                            <td><button onclick="cambiarEstado(this)">Revisar</button></td>
-                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

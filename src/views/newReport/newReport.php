@@ -46,10 +46,10 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
                     
                         <select name="categories" id="categories-newPost" required>
                             <option value="" disabled selected>Selecciona una categoria</option>
-                            <option value="sugerencia">SUGERENCIA</option>
-                            <option value="bug">BUG</option>
-                            <option value="queja">QUEJA</option>
-                            <option value="otro">OTRO</option>
+                            <option value="SUGERENCIA">SUGERENCIA</option>
+                            <option value="BUG">BUG</option>
+                            <option value="QUEJA">QUEJA</option>
+                            <option value="OTRO">OTRO</option>
                         </select>
                     </div>
                 </div>
