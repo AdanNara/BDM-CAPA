@@ -4,14 +4,16 @@
     
     $dbConnection = new Database($config['database']);
 
-    $query = 'CALL sp_GestionReportes(2, NULL, NULL, NULL, NULL)';
+    //OBTENEMOS LA LISTA DE REPORTES PENDIENTES
 
-    $listaBuzon = [];
+    $queryPendientes = 'CALL sp_GestionReportes(2, NULL, NULL, NULL, NULL)';
 
-    $result = $dbConnection->query($query, []);
+    $listaPendientes = [];
 
-    foreach($result as $value){
-        $listaBuzon [] = [
+    $resultPendientes = $dbConnection->query($queryPendientes, []);
+
+    foreach($resultPendientes as $value){
+        $listaPendientes [] = [
             'ID' => $value->ID,
             'Tipo' => $value->Tipo,
             'Descripcion' => $value->Descripcion,
@@ -21,5 +23,28 @@
         ];
     }
 
-    return $listaBuzon;
+    //LIMPIAMOS 
+   
+    $queryRevisados = 'CALL sp_GestionReportes(3, NULL, NULL, NULL, NULL)';
+
+    $listaRevisados = [];
+
+    $resultRevisados = $dbConnection->query($queryRevisados, []);
+
+    foreach($resultRevisados as $value){
+        $listaRevisados [] = [
+            'ID' => $value->ID,
+            'Tipo' => $value->Tipo,
+            'Descripcion' => $value->Descripcion,
+            'Usuario' => $value->Usuario,
+            'FechaHora' => $value->FechaHora,
+            'Estado' => $value->Estado
+        ];
+    }
+
+    //RETORNAMOS UN ARREGLO CON LOS ARREGLOS DE CADA CONSULTA
+    return [
+        'pendientes'=>$listaPendientes,
+        'revisados'=>$listaRevisados
+    ];
 ?>

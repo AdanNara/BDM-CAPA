@@ -31,6 +31,8 @@
 
     <?php
         $listaBuzon = require 'src/controllers/mostrarBuzon.php';
+        $pendientes = $listaBuzon['pendientes'];
+        $revisados = $listaBuzon['revisados'];
     ?>
 
 <div class="container">
@@ -46,6 +48,8 @@
             </div>
              <!-- Contenido -->
              <div class="post-content">
+                <!-- TABLA REPORTES SIN REVISAR-->
+                <p>Lista de reportes pendientes</p>
                 <table>
                     <thead>
                         <tr>
@@ -59,24 +63,60 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($listaBuzon as $buzon){ ?>
+                        <?php foreach($pendientes as $listPendientes){ ?>
                         <tr>
-                            <td><?=$buzon['ID'] ?></td>
-                            <td><?=$buzon['Tipo'] ?></td>
-                            <td><?=$buzon['Descripcion'] ?></td>
-                            <td><?=$buzon['Usuario'] ?></td>
-                            <td><?=$buzon['FechaHora'] ?></td>
-                            <td><?php if($buzon['Estado']==1){ ?>
-                                    Completado
-                                <?php }else{ ?>
-                                    Pendiente
-                                <?php } ?>
-                            </td>
-                            <td><button onclick="cambiarEstado(this)">Revisar</button></td>
+                            <form id="formBuzon" class="form-Buzon" action="src/controllers/revisarBuzon.php" method="post">
+                                <td><?=$listPendientes['ID'] ?></td>
+                                <input type="text" name="id" value="<?=$listPendientes['ID'] ?>" hidden>
+                                <td><?=$listPendientes['Tipo'] ?></td>
+                                <td><?=$listPendientes['Descripcion'] ?></td>
+                                <td><?=$listPendientes['Usuario'] ?></td>
+                                <td><?=$listPendientes['FechaHora'] ?></td>
+                                <td><?php if($listPendientes['Estado']==1){ ?>
+                                        Completado
+                                    <?php }else{ ?>
+                                        Pendiente
+                                    <?php } ?>
+                                </td>
+                                <td><button onclick="cambiarEstado(this)">Revisar </button></td>
+                            </form>
                         </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                <!-- TABLA REPORTES REVISADOS-->
+                <p>Lista de reportes Completados</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo de Reporte</th>
+                            <th>Descripción</th>
+                            <th>Usuario</th>
+                            <th>Fecha y hora</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($revisados as $listRevisados){ ?>
+                        <tr>
+                            <td><?=$listRevisados['ID'] ?></td>
+                            <input type="text" name="id" value="<?=$listRevisados['ID'] ?>" hidden>
+                            <td><?=$listRevisados['Tipo'] ?></td>
+                            <td><?=$listRevisados['Descripcion'] ?></td>
+                            <td><?=$listRevisados['Usuario'] ?></td>
+                            <td><?=$listRevisados['FechaHora'] ?></td>
+                            <td><?php if($listRevisados['Estado']==1){ ?>
+                                Completado
+                                <?php }else{ ?>
+                                Pendiente
+                                <?php } ?>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
             </div>
             
         </div>

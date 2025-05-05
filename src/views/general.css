@@ -10,7 +10,11 @@
 body {
     font-family: 'Teko', sans-serif;
     background: linear-gradient(180deg, rgba(24,69,96,1) 0%, rgba(21,28,38,1) 60%);
-    min-height: 100vh; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh; /* El alto del gradiente será siempre el alto de la ventana */
+    
+    min-height: 100vh;
     padding-left: 20%;
     padding-right: 20%;
 }
@@ -233,4 +237,17 @@ textarea::placeholder{
 
 .bronce-trophy{
     color: #b16112;
+}
+
+#post-image{
+    width: 100%;
+    height: auto;
+    
+
+}
+
+#post-video{
+    width: 100%;
+    height: auto;
+    background-color: rgb(0, 0, 0);
 }
