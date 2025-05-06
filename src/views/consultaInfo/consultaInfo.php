@@ -28,6 +28,19 @@
     require 'src/views/partials/asidebar.php'
     ?>
 
+<?php
+$listaConsultas = [];
+
+//valida si existe el parametro accion en la URL
+if (isset($_GET['accion'])) {
+    
+    $listaConsultas = require 'src/controllers/mostrarConsulta.php';
+}
+
+
+?>
+
+
 <div class="container">
     
     <main class="content">
@@ -37,29 +50,40 @@
         <div class="newPost-container">
              <!-- Cabecera -->
             <div class="post-header">
-                <button>N° de publicaciones por videojuego</button>
-                <button>N° de posts por usuario</button>
+                
+                <form method="GET">
+                    <input type="hidden" name="accion" value="1">
+                    <button type="submit">N° de publicaciones por videojuego</button>
+                </form>
+
+                <form method="GET">
+                    <input type="hidden" name="accion" value="2">
+                    <button type="submit">N° de publicaciones por usuario</button>
+                </form>
+
             </div>
              <!-- Contenido -->
              <div class="post-content">
+             <?php if (!empty($listaConsultas)) { ?>
                 <table>
                     <thead>
                         <tr>
-                            <th>Videojuego</th>
+                            <th>ID</th>
+                            <th>Nombre</th>
                             <th>Número de publicaciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="rowTabla">
-                            <td class="nombreVideojuego">Marvel Rivals</td>
-                            <td class="numeroPublicaciones">10</td>
-                        </tr>
-                        <tr class="rowTabla">
-                            <td class="nombreVideojuego">Overwatch</td>
-                            <td class="numeroPublicaciones">5</td>
-                        </tr>
+                        <?php foreach ($listaConsultas as $consulta) { ?>
+                            <tr class="fila-reporte" data-id="<?= $consulta['ID'] ?>" data-accion="<?= $accion ?>">
+                                <td><?= $consulta['ID'] ?></td>
+                                <td><?= $consulta['Nombre'] ?></td>
+                                <td><?= $consulta['NumeroPublicaciones'] ?></td>
+                            </tr>
+                        <?php }?>
                     </tbody>
                 </table>
+            <?php } ?>
             </div>
             
         </div>

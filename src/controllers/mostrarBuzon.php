@@ -23,7 +23,7 @@
         ];
     }
 
-    //LIMPIAMOS 
+    //OBTENEMOS LA LISTA DE REPORTES REVISADOS
    
     $queryRevisados = 'CALL sp_GestionReportes(3, NULL, NULL, NULL, NULL)';
 
@@ -42,7 +42,7 @@
         ];
     }
 
-    //RETORNAMOS UN ARREGLO CON LOS ARREGLOS DE CADA CONSULTA
+    //RETORNAMOS UN ARREGLO CON EL ARREGLO DE CADA CONSULTA
     return [
         'pendientes'=>$listaPendientes,
         'revisados'=>$listaRevisados

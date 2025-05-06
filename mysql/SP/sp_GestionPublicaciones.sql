@@ -80,6 +80,24 @@ BEGIN
 				ON p.usuario = u.username
 		WHERE p.videojuego = pvideojuego;
 	END IF;
+    
+    #5 MOSTRAR PUBLICACIONES CON FILTRO DE USUARIO
+    IF accion = 6 THEN
+		SELECT 
+		p.idPublicacion as ID,
+		p.titulo as Titulo,
+		p.descripcion as Descr,
+		p.video as Video,
+		p.calificacion as Calif,
+		j.nombre as Videojuego,
+		u.username as Usuario
+		FROM publicaciones as p
+			JOIN videojuegos as j
+				ON p.videojuego = j.idVideojuego
+			JOIN usuarios as u
+				ON p.usuario = u.username
+		WHERE u.username = pusuario;
+	END IF;
         
 END &&
 DELIMITER ;
@@ -91,6 +109,8 @@ use db_videopost;
 
 CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null); #EJECUTA SIN FILTRO PARA INICIO
 CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, 1); #EJECUTA CON FILTRO PARA DESCUBRIR
+CALL sp_GestionPublicaciones(6, null , null, null, null, null, 'usuario4', null);#EJECUTA CON FILTRO PARA USUARIO
 
+select * from usuarios;
 SHOW CREATE PROCEDURE sp_GestionPublicaciones;
 DROP PROCEDURE sp_GestionPublicaciones;

@@ -109,15 +109,36 @@ table {
     border-radius: 15px;
     margin: 20px 0;
 }
-th, td {
+
+th {
     border: 2px solid rgb(134, 134, 134);
-    background-color: rgb(62, 62, 62);;
+    background-color:rgb(12, 56, 92);
+    color: rgb(206, 206, 206);
+    font-size: 28px;
+    padding: 8px;
+}
+
+ td {
+    border: 2px solid rgb(134, 134, 134);
+    background-color: rgb(62, 62, 62);
     padding: 8px;
     text-align: left;
     font-size: 25px;
     
+
+    
 }
-th {
-    background-color:rgb(12, 56, 92);
-    color: rgb(206, 206, 206);
+
+tbody tr{
+    
 }
+
+tbody tr:hover td{
+    
+    cursor: pointer;
+    background-color: rgb(36, 38, 39);
+    
+}
+
+
+

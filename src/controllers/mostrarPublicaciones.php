@@ -5,12 +5,18 @@ $config = require 'src/classes/configDB.php';
 
 $dbConnection = new Database($config['database']);
 
-$IDVideojuego = $_GET['ID'] ?? null;
+$ID = $_GET['ID'] ?? null;
+$ACCION = $_GET['ACCION'] ?? null;
 
-if($IDVideojuego){
+
+if($ACCION == 2){//MOSTRAR PUBLICACIONES POR USUARIO
+    $query = 'CALL sp_GestionPublicaciones(6, null , null, null, null, null, :usuario, null)';
+    $params = [':usuario' => $ID];
+}
+else if($ID){//MOSTRAR PUBLICACIONES POR JUEGO
     $query = 'CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, :videojuego)';
-    $params = [':videojuego' => $IDVideojuego];
-}else{
+    $params = [':videojuego' => $ID];
+}else{//MOSTRAR PUBLICACIONES SIN FILTROS
     $query = 'CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null)';
     $params = [];
 }

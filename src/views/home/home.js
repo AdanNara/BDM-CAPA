@@ -5,7 +5,9 @@ document.getElementById("abrirBuzon").addEventListener("click",function(){
 
 });
 
+/*
 if (window.history.replaceState) {
     const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
     window.history.replaceState({}, document.title, cleanUrl);
 }
+    */

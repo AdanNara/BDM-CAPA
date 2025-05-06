@@ -39,7 +39,7 @@
 
             <?php if($filter){ ?>
 
-                <h1>Publicaciones de <?= htmlspecialchars($_GET['Nombre']) ?> </h1>
+                <h1>Publicaciones  <?= htmlspecialchars($_GET['Nombre']) ?> </h1>
                 
             <?php } ?>
 
