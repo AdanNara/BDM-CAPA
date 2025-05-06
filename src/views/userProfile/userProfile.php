@@ -55,7 +55,9 @@
 
             </div>
             <div class="api-seccion">
-                <p>*EN ESTE APARTADO SE MANEJARA LA CONEXION CON LA API</p>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1369418288832053288&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fsrc%2Fapi%2FdiscordAPI.php&response_type=code&scope=identify">
+                <button>Iniciar sesión con Discord</button>
+                </a>
             </div>
 
             <form id="formulario-infousuario" method="post" action="/src/controllers/modificarUsuario.php">

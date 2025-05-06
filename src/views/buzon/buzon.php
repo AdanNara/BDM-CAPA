@@ -64,7 +64,7 @@
                     </thead>
                     <tbody>
                         <?php foreach($pendientes as $listPendientes){ ?>
-                        <tr>
+                        <tr class="lista-pendientes">
                             <form id="formBuzon" class="form-Buzon" action="src/controllers/revisarBuzon.php" method="post">
                                 <td><?=$listPendientes['ID'] ?></td>
                                 <input type="text" name="id" value="<?=$listPendientes['ID'] ?>" hidden>
@@ -78,7 +78,7 @@
                                         Pendiente
                                     <?php } ?>
                                 </td>
-                                <td><button onclick="cambiarEstado(this)">Revisar </button></td>
+                                <td><button type="submit">Revisar </button></td>
                             </form>
                         </tr>
                         <?php } ?>
@@ -99,7 +99,7 @@
                     </thead>
                     <tbody>
                         <?php foreach($revisados as $listRevisados){ ?>
-                        <tr>
+                        <tr class="lista-revisados">
                             <td><?=$listRevisados['ID'] ?></td>
                             <input type="text" name="id" value="<?=$listRevisados['ID'] ?>" hidden>
                             <td><?=$listRevisados['Tipo'] ?></td>
