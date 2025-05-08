@@ -28,6 +28,7 @@
     require 'src/views/partials/asidebar.php';
     $listaPublicaciones = require 'src/controllers/mostrarPublicaciones.php';
     $filter = $_GET['ID'] ?? null;
+    
 ?>
 
 
@@ -44,6 +45,10 @@
             <?php } ?>
 
             <?php foreach ($listaPublicaciones as $publicacion) { ?>
+                <?php
+                    $_GET['id'] = $publicacion['Usuario'];
+                    $usuarioDiscord = require 'src/controllers/mostrarUsuarioDiscord.php';
+                ?>
               
                 <div class="post-container" data-ID="<?= htmlspecialchars($publicacion['ID']) ?>">
                 <!-- Cabecera -->
@@ -51,6 +56,11 @@
                     <div class="user-data">
                         <img src="src/controllers/mostrarImagen.php?id=<?= $publicacion['Usuario'] ?> " alt="Avatar" class="user-avatar">
                         <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?></p>
+                        <?php if($usuarioDiscord['usuarioDiscord'] != null){ ?>
+                        <a href="https://discord.com/channels/@me" target="_blank" class="discord-link">
+                        <p class="discord-username"><i class='bx bxl-discord' ></i><?= htmlspecialchars($usuarioDiscord['usuarioDiscord']) ?></p>
+                        </a>
+                        <?php } ?>
                     </div>
                     <div class="post-category">
                         <p class="category-name"> <?= htmlspecialchars($publicacion['Videojuego']) ?> </p>

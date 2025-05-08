@@ -58,7 +58,16 @@ BEGIN
 		ORDER BY TotalPublicaciones DESC
 		LIMIT 3;
     END IF;
-    
+    #7 AGREGAR NOMBRE DE USUARIO DE DISCORD
+    IF accion = 7 THEN
+		UPDATE usuarios SET discordUser = pdiscordUser WHERE username = pusername;
+	END IF;
+    #8 TRAER NOMBRE DE USUARIO DE DISCORD 
+    IF accion = 8 THEN
+		SELECT discordUser AS usuarioDiscord
+        FROM usuarios 
+        WHERE username = pusername;
+    END IF;
 END &&
 DELIMITER ;
 
@@ -69,3 +78,7 @@ DROP PROCEDURE sp_GestionUsuarios;
 CALL sp_GestionUsuarios(1,'a','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO
 CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null,null); #INICIO SESION
 CALL sp_GestionUsuarios(6,null,null,null,null,null,null); #RANKING USUARIOS
+CALL sp_GestionUsuarios(7,'admin',null,null,null,'DISCORD',null); #AGREGAR USUARIO DISCORD
+CALL sp_GestionUsuarios(8,'admin',null,null,null,null,null); #OBTENER USUARIO DE DISCORD
+
+update usuarios SET discordUser = NULL where username='admin';

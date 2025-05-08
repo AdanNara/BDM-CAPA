@@ -1,6 +1,6 @@
 
-
 <?php
+session_start();
 // credenciales de Discord
 $client_id = '1369418288832053288';
 $client_secret = 'gMDUlpXPQW89ibbgaPVdJwWuWdgfuOBp';
@@ -21,7 +21,8 @@ $data = [
     'grant_type' => 'authorization_code',
     'code' => $code,
     'redirect_uri' => $redirect_uri,
-    'scope' => 'identify email'
+    //aqui declaramos el scope que queremos
+    'scope' => 'identify'
 ];
 
 $ch = curl_init();
@@ -58,8 +59,14 @@ $user_data = json_decode($user_response, true);
 
 if (!isset($user_data['id'])) {
     exit('Error al obtener los datos del usuario.');
+}else{
+
+
+
+require '../controllers/guardarUsuarioDiscord.php';
+guardarUsuarioDiscord($user_data['username']);
+
+
+
 }
-
-
-echo $user_data['username'];
 ?>

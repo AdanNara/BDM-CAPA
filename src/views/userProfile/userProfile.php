@@ -29,6 +29,11 @@
     require 'src/views/partials/asidebar.php'
     ?>
 
+    <?php
+        $_GET['id'] = $usuarioLoggeado['username'];
+        $usuarioDiscord = require 'src/controllers/mostrarUsuarioDiscord.php';
+    ?>
+    
 <div class="container">
 
     <main class="content">
@@ -55,9 +60,13 @@
 
             </div>
             <div class="api-seccion">
+                <?php if($usuarioDiscord['usuarioDiscord'] === null){ ?>
                 <a href="https://discord.com/api/oauth2/authorize?client_id=1369418288832053288&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fsrc%2Fapi%2FdiscordAPI.php&response_type=code&scope=identify">
-                <button>Iniciar sesión con Discord</button>
+                <button class="btn-discord"><i class='bx bxl-discord' ></i>Conectar con Discord</button>
                 </a>
+                <?php }else{ ?>
+                    <p class="discord-username"><i class='bx bxl-discord' ></i><?= htmlspecialchars($usuarioDiscord['usuarioDiscord']) ?></p>
+                <?php } ?>
             </div>
 
             <form id="formulario-infousuario" method="post" action="/src/controllers/modificarUsuario.php">
