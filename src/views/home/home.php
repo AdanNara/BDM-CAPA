@@ -88,9 +88,11 @@
         
                 <!-- Acciones -->
                 <div class="post-actions">
-                    <p class="rating">  <?= htmlspecialchars($publicacion['Calif']) ?> </p>
-                    <i class='bx bx-upvote bx-sm up-arrow' ></i>
-                    <i class='bx bx-downvote bx-sm down-arrow' ></i>
+                    <form class="formVotes" data-voted="NO" data-ID="<?= htmlspecialchars($publicacion['ID']) ?>">
+                        <div id="calificacionNumero" class="rating">  <?= htmlspecialchars($publicacion['Calif']) ?> </div>
+                        <button id="upvoteButton" class='bx bx-upvote bx-sm up-arrow' ></button>
+                        <button id="downvoteButton" class='bx bx-downvote bx-sm down-arrow' ></button>
+                    </form>
                 </div>
             </div>
 

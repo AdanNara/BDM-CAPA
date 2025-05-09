@@ -67,7 +67,7 @@ BEGIN
 		WHERE p.videojuego = pvideojuego;
 	END IF;
     
-    #5 MOSTRAR PUBLICACIONES CON FILTRO DE USUARIO
+    #6 MOSTRAR PUBLICACIONES CON FILTRO DE USUARIO
     IF accion = 6 THEN
 		SELECT 
 		p.idPublicacion as ID,
@@ -84,6 +84,19 @@ BEGIN
 				ON p.usuario = u.username
 		WHERE u.username = pusuario;
 	END IF;
+    
+    #7 SUBIR UN VOTO
+    IF accion = 7 THEN
+		UPDATE publicaciones
+        SET upvote = upvote + 1
+        WHERE idPublicacion = pid;
+    END IF;
+    
+	IF accion = 8 THEN
+		UPDATE publicaciones
+        SET downvote = downvote + 1
+        WHERE idPublicacion = pid;
+    END IF;
         
 END &&
 DELIMITER ;
