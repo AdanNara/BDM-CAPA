@@ -89,7 +89,7 @@
     padding: 10px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(233, 233, 233);
     flex: 83%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
@@ -114,7 +114,7 @@
 }
 
 .texto-msj{
-    color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
 }
 
 
@@ -122,6 +122,13 @@
     display: flex;
     gap:10px;
     flex:7%;
+}
+
+#formulario-input{
+    display: flex;
+    gap:10px;
+    width: 100%;
+    height: 100%;
 }
 
 

@@ -1,17 +1,3 @@
-/*
-	idPublicacion int primary key auto_increment,
-    titulo varchar(50) not null COMMENT 'Titulo de la publicacion obligatoria',
-    descripcion text COMMENT 'Texto donde el usuario explica su publicacion, opcional',
-    foto mediumblob COMMENT 'Foto que acompaña la publicacion, opcional (foto o video solo 1)',
-    video varchar(255) COMMENT 'Path del video que acompaña la publicacion, opcional (foto o video solo 1)',
-    upvote int default 0 COMMENT  'Votos positivos que tiene la publicacion',
-    downvote int default 0 COMMENT 'Votos negativos que tiene la publicacion',
-    calificacion int default 0 COMMENT 'Calificacion calculada restando el valor downvote a upvote',
-    fechahora datetime default now() COMMENT 'Fecha y hora cuando se realizo la publicacion',
-    usuario varchar(20) not null COMMENT 'Llave foranea a usuarios',
-    videojuego int COMMENT 'Llave foranea a videojuegos',
-*/
-
 #SP PARA GESTION DE PUBLICACIONES
 DELIMITER &&
 CREATE PROCEDURE sp_GestionPublicaciones(

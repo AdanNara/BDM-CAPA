@@ -6,7 +6,7 @@ return [
         'dbname' => 'db_videopost',
         'port' => '3306',
         'user' => 'root',
-        'password' => 'admin123',
+        'password' => 'chilaquil',
         'charset' => 'utf8mb4'
     ]
 ];

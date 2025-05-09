@@ -1,11 +1,7 @@
-/*
-	idVideojuego int primary key auto_increment,
-    nombre varchar(100) not null COMMENT 'Nombre completo del titulo del videojuego',
-    caratula text not null COMMENT 'URL a la imagen del videojuego'
-*/
 
 use db_videopost;
 SELECT * FROM videojuegos;
+truncate table videojuegos;
 
 #INSERTAR DATOS
 INSERT INTO videojuegos (nombre, caratula)

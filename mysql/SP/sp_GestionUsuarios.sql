@@ -46,6 +46,7 @@ BEGIN
             FROM usuarios
             WHERE  username = pusername;
     END IF;
+    
     #6 RANKING DE USUARIOS CON MAYOR NUMERO DE PUBLICACIONES
     IF accion = 6 THEN
 		SELECT 
@@ -58,21 +59,33 @@ BEGIN
 		ORDER BY TotalPublicaciones DESC
 		LIMIT 3;
     END IF;
+    
     #7 AGREGAR NOMBRE DE USUARIO DE DISCORD
     IF accion = 7 THEN
 		UPDATE usuarios SET discordUser = pdiscordUser WHERE username = pusername;
 	END IF;
+    
     #8 TRAER NOMBRE DE USUARIO DE DISCORD 
     IF accion = 8 THEN
 		SELECT discordUser AS usuarioDiscord
         FROM usuarios 
         WHERE username = pusername;
     END IF;
+    
+    #9 OBTENER LISTA DE USUARIOS
+    IF accion = 9 THEN
+		SELECT username, nombre
+        FROM usuarios
+        WHERE username != pusername;
+    END IF;
+    
 END &&
 DELIMITER ;
 
 SHOW CREATE PROCEDURE sp_GestionUsuarios;
 DROP PROCEDURE sp_GestionUsuarios;
+
+use db_videopost;
 
 #EJEMPLO DE EJECUCCION
 CALL sp_GestionUsuarios(1,'a','Juan Perez','jp@gmail.com','123456',null,null); #REGISTRO

@@ -26,7 +26,9 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
 ?>
 
     <?php
-    require 'src/views/partials/asidebar.php'
+    require 'src/views/partials/asidebar.php';
+    $listaUsuarios = require 'src/controllers/obtenerListaUsuarios.php';
+
     ?>
 
 <div class="container">
@@ -39,26 +41,22 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
 
                 <h3>Lista de usuarios:</h3>
                 
-                <div class="contacto">
-                    <h4 class="nomUsuarios">Usuario 1</h4>
+                <?php foreach ($listaUsuarios as $usuario): ?>
+                <div class="contacto" data-username="<?= $usuario['username'] ?>" data-nombre="<?= $usuario['nombre'] ?>">
+                    <h4 class="nomUsuarios"><?= $usuario['username'] ?></h4>
                 </div>
 
-                <div class="contacto">
-                    <h4 class="nomUsuarios">Usuario 2</h4>
-                </div>
-
-                <div class="contacto">
-                    <h4 class="nomUsuarios">Usuario 3</h4>
-                </div>
+                <?php endforeach; ?>
 
             </div>
 
             <div id="cont-mensajes">
                 
-                <div class="defaultCont" id="cont-usuario"><h2 id="nom-usu-Chat">Usuario</h2></div>
+                <div class="defaultCont" id="cont-usuario"><h2 id="nom-usu-Chat">Selecciona un usuario</h2></div>
 
                 <div class="defaultCont" id="cont-chat">
 
+                <!--
                     <div class="msj-Yo">
                         <p class="Yo">Yo:</p> 
                         <p class="texto-msj" >Ola perro infiel</p>
@@ -68,12 +66,17 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
                         <p class="Otro">Usuario:</p> 
                         <p class="texto-msj" >Pero si tu fuiste quien me engaño con mi ermano baboso</p>
                     </div>
-
+                -->
+ 
                 </div>
 
                 <div id="cont-input">
-                    <input id="in-texto" type="text" placeholder="Escribe tu mensaje aqui...">
-                    <button id="in-enviar">Enviar</button>
+
+                    <form id="formulario-input">
+                        <input id="in-texto" type="text" placeholder="Escribe tu mensaje aqui...">
+                        <button id="in-enviar" type="submit">Enviar</button>
+                    </form>
+
                 </div>
 
             </div>
@@ -97,6 +100,6 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
 
 </body>
 
-<script src="src/views//chat/chat.js"></script>
+<script src="src/views/chat/chat.js"></script>
 
 </html>
