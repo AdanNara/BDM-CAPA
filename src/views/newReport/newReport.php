@@ -18,7 +18,7 @@
 
 <?php
 
-session_start();
+//session_start();
 
 $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
 

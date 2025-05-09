@@ -41,7 +41,7 @@
         <a href="/perfil"> <?= htmlspecialchars($usuarioLoggeado['nombre']) ?> </a>
     </div>
     <div class="logOut"> 
-        <a href="/"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>
+        <a href="src/controllers/logout.php"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>
     </div>
     
 </div>
