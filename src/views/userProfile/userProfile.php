@@ -21,6 +21,7 @@
     //session_start();
 
     $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
+    $ultimaModificacion = require 'src/controllers/utlimaModificacion.php';
     
     ?>
 
@@ -90,6 +91,9 @@
                 </div>
             </form>
            
+            <br>
+            <h3 id="h-ultimaMod"><?= htmlspecialchars($ultimaModificacion) ?></h3>
+
         </div>
     </main>
 

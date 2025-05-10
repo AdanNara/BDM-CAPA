@@ -9,9 +9,17 @@ create table usuarios(
 	contrasena varchar(255) not null ,
 	discordUser varchar(40) COMMENT 'Perfil del usuario en la plataforma Discord',
 	tipoUsuario tinyint default 0 COMMENT 'tipo de usuario: 0 - normal, 1 - administrador',
-	fotoPerfil mediumblob 
+	fotoPerfil mediumblob,
+    fechahora_modificacion datetime
 );
 
+#COLUMNA QUE AGREGUE
+alter table usuarios
+add column fechahora_modificacion datetime;
+
+SELECT fn_ultima_modificacion(fechahora_modificacion) as Modificacion
+FROM usuarios
+WHERE username = '';
 
 create table videojuegos(
 	idVideojuego int primary key auto_increment,

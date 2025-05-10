@@ -79,6 +79,12 @@ BEGIN
         WHERE username != pusername;
     END IF;
     
+    IF accion = 10 THEN 
+		SELECT fn_ultima_modificacion(fechahora_modificacion) as Modificacion
+		FROM usuarios
+		WHERE username = pusername;
+    END IF; 
+    
 END &&
 DELIMITER ;
 

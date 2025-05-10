@@ -7,6 +7,5 @@ ON publicaciones
 FOR EACH ROW
 BEGIN 
 	SET NEW.calificacion = NEW.upvote - NEW.downvote;
-
 END &&
 DELIMITER ;
