@@ -31,6 +31,9 @@
     
 ?>
 
+<?php
+    $listaTopUsuarios = require 'src/controllers/rankingUsuarios.php';
+?>
 
 <div class="container">
 
@@ -40,7 +43,7 @@
 
             <?php if($filter){ ?>
 
-                <h1>Publicaciones  <?= htmlspecialchars($_GET['Nombre']) ?> </h1>
+                <h1>Publicaciones de <?= htmlspecialchars($_GET['Nombre']) ?> </h1>
                 
             <?php } ?>
 
@@ -55,7 +58,32 @@
                 <div class="post-header">
                     <div class="user-data">
                         <img src="src/controllers/mostrarImagen.php?id=<?= $publicacion['Usuario'] ?> " alt="Avatar" class="user-avatar">
-                        <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?></p>
+                        <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?>
+                            
+                            <!-- Insignia si es usuario tipo "administrador" -->
+                            <?php if($publicacion['TipoUsuario']==='1'){?>
+                                <i class='bx bxs-wrench'></i>
+                            <?php } ?>
+                            <!-- Insignia si el usuario es parte del Ranking de  usuarios -->
+                            <?php
+                                switch($publicacion['Usuario']){
+                                case $listaTopUsuarios[0]['Usuario']:
+                            ?>
+                                    <i class='bx bxs-trophy oro-trophy' ></i> 
+                            <?php   break;
+                                case $listaTopUsuarios[1]['Usuario']:
+                            ?>
+                                    <i class='bx bxs-trophy plata-trophy' ></i>
+                            <?php   break;
+                                case $listaTopUsuarios[2]['Usuario']:
+                            ?>
+                                    <i class='bx bxs-trophy bronce-trophy' ></i>
+                            <?php   break;
+                                default:
+                                    break;
+                                    }
+                            ?>
+                        </p>
                         <?php if($usuarioDiscord['usuarioDiscord'] != null){ ?>
                         <a href="https://discord.com/channels/@me" target="_blank" class="discord-link">
                         <p class="discord-username"><i class='bx bxl-discord' ></i><?= htmlspecialchars($usuarioDiscord['usuarioDiscord']) ?></p>
@@ -63,7 +91,7 @@
                         <?php } ?>
                     </div>
                     <div class="post-category">
-                        <p class="category-name"> <?= htmlspecialchars($publicacion['Videojuego']) ?> </p>
+                        <p class="category-name" data-categoria="<?=$publicacion['IdVideojuego']?>" data-nombre="<?=$publicacion['Videojuego']?>"> <?= htmlspecialchars($publicacion['Videojuego']) ?> </p>
                     </div>
                 </div>
         

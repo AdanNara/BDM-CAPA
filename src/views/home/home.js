@@ -52,3 +52,14 @@ document.querySelectorAll(".formVotes").forEach(function(publi) {
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("click", function(e) {
+        const target = e.target.closest(".category-name");
+        if (target) {
+            const categoriaId = target.getAttribute("data-categoria");
+            const categoriaNombre = target.getAttribute("data-nombre");
+            window.location.href = "/home?ID=" + encodeURIComponent(categoriaId) + "&Nombre=" + encodeURIComponent(categoriaNombre);
+        }
+    });
+});

@@ -26,20 +26,7 @@ BEGIN
     
     #3 MOSTRAR PUBLICACIONES 
     IF accion = 3 THEN
-		SELECT 
-		p.idPublicacion as ID,
-		p.titulo as Titulo,
-		p.descripcion as Descr,
-		p.video as Video,
-		p.calificacion as Calif,
-		j.nombre as Videojuego,
-		u.username as Usuario
-		FROM publicaciones as p
-		JOIN videojuegos as j
-			ON p.videojuego = j.idVideojuego
-		JOIN usuarios as u
-			ON p.usuario = u.username
-		ORDER BY p.fechahora desc;
+		SELECT * FROM vw_Publicaciones;
 	END IF;
     
     #4 MOSTRAR LA IMAGEN DE CADA PUBLICACION
@@ -57,8 +44,10 @@ BEGIN
 		p.descripcion as Descr,
 		p.video as Video,
 		p.calificacion as Calif,
+        j.idVideojuego as IdVideojuego,
 		j.nombre as Videojuego,
-		u.username as Usuario
+		u.username as Usuario,
+        u.tipoUsuario as TipoUsuario
 		FROM publicaciones as p
 			JOIN videojuegos as j
 				ON p.videojuego = j.idVideojuego
@@ -75,8 +64,10 @@ BEGIN
 		p.descripcion as Descr,
 		p.video as Video,
 		p.calificacion as Calif,
+        j.idVideojuego as IdVideojuego,
 		j.nombre as Videojuego,
-		u.username as Usuario
+		u.username as Usuario,
+        u.tipoUsuario as TipoUsuario
 		FROM publicaciones as p
 			JOIN videojuegos as j
 				ON p.videojuego = j.idVideojuego
@@ -97,6 +88,26 @@ BEGIN
         SET downvote = downvote + 1
         WHERE idPublicacion = pid;
     END IF;
+    #5 MOSTRAR PUBLICACIONES POR CATEGORIA ORDENADAS POR CALIFICACION;
+    IF accion = 9 THEN
+		SELECT 
+		p.idPublicacion as ID,
+		p.titulo as Titulo,
+		p.descripcion as Descr,
+		p.video as Video,
+		p.calificacion as Calif,
+        j.idVideojuego as IdVideojuego,
+		j.nombre as Videojuego,
+		u.username as Usuario,
+        u.tipoUsuario as TipoUsuario
+		FROM publicaciones as p
+			JOIN videojuegos as j
+				ON p.videojuego = j.idVideojuego
+			JOIN usuarios as u
+				ON p.usuario = u.username
+		WHERE p.videojuego = pvideojuego
+        ORDER BY calificacion DESC;
+	END IF;
         
 END &&
 DELIMITER ;
@@ -109,6 +120,7 @@ use db_videopost;
 CALL sp_GestionPublicaciones(3, null , null, null, null, null, null, null); #EJECUTA SIN FILTRO PARA INICIO
 CALL sp_GestionPublicaciones(5, null , null, null, null, null, null, 1); #EJECUTA CON FILTRO PARA DESCUBRIR
 CALL sp_GestionPublicaciones(6, null , null, null, null, null, 'usuario4', null);#EJECUTA CON FILTRO PARA USUARIO
+CALL sp_GestionPublicaciones(9, null , null, null, null, null, null, 8); #EJECUTA CON FILTRO PARA VIDEOJUEGO ORDENADO POR CALIFICACION
 
 select * from usuarios;
 SHOW CREATE PROCEDURE sp_GestionPublicaciones;

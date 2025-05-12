@@ -75,7 +75,7 @@ if (isset($_GET['accion'])) {
                     </thead>
                     <tbody>
                         <?php foreach ($listaConsultas as $consulta) { ?>
-                            <tr class="fila-reporte" data-id="<?= $consulta['ID'] ?>" data-accion="<?= $accion ?>">
+                            <tr class="fila-reporte" data-id="<?= $consulta['ID'] ?>" data-nombre="<?= $consulta['Nombre'] ?>" data-accion="<?= $accion ?>">
                                 <td><?= $consulta['ID'] ?></td>
                                 <td><?= $consulta['Nombre'] ?></td>
                                 <td><?= $consulta['NumeroPublicaciones'] ?></td>

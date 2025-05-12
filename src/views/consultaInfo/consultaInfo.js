@@ -14,17 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
             
             const id = row.getAttribute("data-id");
             const accion = row.getAttribute("data-accion");
-
-            let filtro = ""
-
-            if(accion === "1"){
-                filtro = "por videojuego"
-            }
-            else if(accion === "2"){
-                filtro = "por usuario"
-            }
+            const nombre = row.getAttribute("data-nombre");
             
-            window.location.href = "/home?ID=" + id + "&ACCION=" + accion + "&Nombre=" + filtro;
+            window.location.href = "/home?ID=" + id + "&ACCION=" + accion + "&Nombre=" + nombre;
         });
     });
 });

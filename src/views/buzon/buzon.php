@@ -73,7 +73,7 @@
                                 <td><?=$listPendientes['Usuario'] ?></td>
                                 <td><?=$listPendientes['FechaHora'] ?></td>
                                 <td><?php if($listPendientes['Estado']==1){ ?>
-                                        Completado
+                                        Revisado
                                     <?php }else{ ?>
                                         Pendiente
                                     <?php } ?>
@@ -107,7 +107,7 @@
                             <td><?=$listRevisados['Usuario'] ?></td>
                             <td><?=$listRevisados['FechaHora'] ?></td>
                             <td><?php if($listRevisados['Estado']==1){ ?>
-                                Completado
+                                Revisado
                                 <?php }else{ ?>
                                 Pendiente
                                 <?php } ?>

@@ -38,7 +38,13 @@
         <img src="src/controllers/mostrarImagen.php?id=<?= $usuarioLoggeado['username']?>" 
         alt="Avatar" class="user-avatar"
         onerror="this.onerror=null; this.src='resources/avatar.jpg';">
-        <a href="/perfil"> <?= htmlspecialchars($usuarioLoggeado['nombre']) ?> </a>
+        <a href="/perfil"> <?= htmlspecialchars($usuarioLoggeado['nombre']) ?> 
+            <?php if($usuarioLoggeado['tipoUsuario'] ==1){ ?>
+                <i class='bx bxs-wrench'></i>
+            <?php } ?>
+
+
+        </a>
     </div>
     <div class="logOut"> 
         <a href="src/controllers/logout.php"><i class='bx bx-log-out icon-logOut'></i> Cerrar sesion</a>

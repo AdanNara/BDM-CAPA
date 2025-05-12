@@ -261,3 +261,7 @@ textarea::placeholder{
     border: 3px solid rgb(118, 129, 255);
     
 }
+
+.post-category{
+    cursor: pointer;
+}

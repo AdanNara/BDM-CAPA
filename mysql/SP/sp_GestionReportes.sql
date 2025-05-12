@@ -17,37 +17,18 @@ BEGIN
 	END IF; 
     #OBTENER LISTA DE REPORTES PENDIENTES
     IF accion = 2 THEN
-		SELECT 
-			r.idReporte AS ID,
-            r.tipo AS Tipo,
-            r.descripcion AS Descripcion,
-            u.username AS Usuario, 
-            r.fechahora AS FechaHora,
-            r.estado AS Estado
-		FROM reportes AS r
-        JOIN usuarios AS u
-        ON r.usuario = u.username
-        WHERE r.estado = 0;
+		SELECT * FROM vw_ReportesPendientes;
 	END IF;
-    #REVISION DE REPORTE
+     #OBTENER LISTA DE REPORTES REVISADOS
     IF accion = 3 THEN 
-		SELECT 
-			r.idReporte AS ID,
-            r.tipo AS Tipo,
-            r.descripcion AS Descripcion,
-            u.username AS Usuario, 
-            r.fechahora AS FechaHora,
-            r.estado AS Estado
-		FROM reportes AS r
-        JOIN usuarios AS u
-        ON r.usuario = u.username
-        WHERE r.estado = 1;
+		SELECT * FROM vw_ReportesRevisados;
     END IF;
     IF accion = 4 THEN 
 		UPDATE reportes SET estado = 1 WHERE idReporte = pid;
     END IF;
     
 END &&
+DELIMITER ;
 
 DROP PROCEDURE sp_GestionReportes;
 CALL sp_GestionReportes(1, NULL, 'OTRO', 'esto no es un meme, es una llamada de auxilio' , 'usuario5');

@@ -49,15 +49,7 @@ BEGIN
     
     #6 RANKING DE USUARIOS CON MAYOR NUMERO DE PUBLICACIONES
     IF accion = 6 THEN
-		SELECT 
-			u.username AS NombreUsuario,
-			COUNT(*) AS TotalPublicaciones
-		FROM usuarios AS u
-		JOIN publicaciones AS p
-		ON u.username = p.usuario
-		GROUP BY u.username
-		ORDER BY TotalPublicaciones DESC
-		LIMIT 3;
+		SELECT * FROM vw_RankingUsuarios;
     END IF;
     
     #7 AGREGAR NOMBRE DE USUARIO DE DISCORD

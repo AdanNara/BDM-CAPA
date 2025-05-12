@@ -9,7 +9,11 @@ $ID = $_GET['ID'] ?? null;
 $ACCION = $_GET['ACCION'] ?? null;
 
 
-if($ACCION == 2){//MOSTRAR PUBLICACIONES POR USUARIO
+if($ACCION == 1){//MOSTRAR PUBLICACIONES POR JUEGO ORDENADAS POR CALIFICACION 
+    $query = 'CALL sp_GestionPublicaciones(9, null , null, null, null, null, null, :videojuego)';
+    $params = [':videojuego' => $ID];
+}
+else if($ACCION == 2){//MOSTRAR PUBLICACIONES POR USUARIO
     $query = 'CALL sp_GestionPublicaciones(6, null , null, null, null, null, :usuario, null)';
     $params = [':usuario' => $ID];
 }
@@ -34,9 +38,10 @@ $result = $dbConnection->query($query, $params);
             'Descripcion' => $value->Descr,
             'Video' => $value->Video,
             'Calif' => $value->Calif,
+            'IdVideojuego' => $value->IdVideojuego,
             'Videojuego' => $value->Videojuego,
             'Usuario' => $value->Usuario,
-     
+            'TipoUsuario' => $value->TipoUsuario,
         ];
     }
     
