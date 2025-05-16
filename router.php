@@ -1,6 +1,7 @@
 <?php
 
 require_once 'src/middlewares/authMiddleware.php';
+require_once 'src/middlewares/adminMiddleware.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -12,8 +13,8 @@ $routes = [
     '/descubrir' => ['view' => 'src/views/descubrir/descubrir.php', 'middleware' => ['authMiddleware']],
     '/publicar' => ['view' => 'src/views/newPost/newPost.php', 'middleware' => ['authMiddleware']],
     '/chat'=> ['view' => 'src/views/chat/chat.php', 'middleware' => ['authMiddleware']],
-    '/consultar' => ['view' => 'src/views/consultaInfo/consultaInfo.php', 'middleware' => ['authMiddleware']],
-    '/buzon' => ['view' => 'src/views/buzon/buzon.php', 'middleware' => ['authMiddleware']],
+    '/consultar' => ['view' => 'src/views/consultaInfo/consultaInfo.php', 'middleware' => ['authMiddleware','adminMiddleware']],
+    '/buzon' => ['view' => 'src/views/buzon/buzon.php', 'middleware' => ['authMiddleware','adminMiddleware']],
     '/reportar' => ['view' => 'src/views/newReport/newReport.php', 'middleware' => ['authMiddleware']],
     '/api' => ['view' => 'src/views/apiFront/apiFront.php']
 ];

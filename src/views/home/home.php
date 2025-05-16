@@ -26,6 +26,7 @@
 
 <?php
     require 'src/views/partials/asidebar.php';
+    //require 'src/controllers/functions.php';
     $listaPublicaciones = require 'src/controllers/mostrarPublicaciones.php';
     $filter = $_GET['ID'] ?? null;
     
@@ -33,6 +34,7 @@
 
 <?php
     $listaTopUsuarios = require 'src/controllers/rankingUsuarios.php';
+
 ?>
 
 <div class="container">
@@ -57,11 +59,11 @@
                 <!-- Cabecera -->
                 <div class="post-header">
                     <div class="user-data">
-                        <img src="src/controllers/mostrarImagen.php?id=<?= $publicacion['Usuario'] ?> " alt="Avatar" class="user-avatar">
+                        <img src="src/controllers/mostrarImagen.php?id=<?= $publicacion['Usuario'] ?> " alt="Avatar" onerror="this.onerror=null; this.src='resources/avatar.jpg';" class="user-avatar">
                         <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?>
                             
                             <!-- Insignia si es usuario tipo "administrador" -->
-                            <?php if($publicacion['TipoUsuario']==='1'){?>
+                            <?php if($publicacion['TipoUsuario']=='1'){?>
                                 <i class='bx bxs-wrench'></i>
                             <?php } ?>
                             <!-- Insignia si el usuario es parte del Ranking de  usuarios -->
