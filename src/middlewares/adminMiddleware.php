@@ -5,7 +5,7 @@ function adminMiddleware() {
         session_start();
     }
 
-    if (!isset($_SESSION['usuarioLoggeado']) || $_SESSION['usuarioLoggeado']['tipoUsuario'] != 1) {
+    if ($_SESSION['usuarioLoggeado']['tipoUsuario'] != 1) {
         header('Location: /home');
         exit;
     }
