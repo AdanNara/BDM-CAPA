@@ -20,6 +20,6 @@ DELIMITER ;
 
 SELECT fn_reputacion_usuario('admin');
 
-SELECT COALESCE(SUM(calificacion), 0) AS REPUTACION
+SELECT SUM(calificacion) AS REPUTACION
     FROM publicaciones
-    WHERE usuario = 'admin';
+    WHERE usuario = 'webo';

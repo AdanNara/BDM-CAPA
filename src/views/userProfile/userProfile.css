@@ -114,3 +114,13 @@ button{
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
+
+#reputacion{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.estrellaReputacion{
+    color: rgb(51, 133, 255);
+}
