@@ -75,6 +75,11 @@ BEGIN
 		SELECT fn_ultima_modificacion(fechahora_modificacion) as Modificacion
 		FROM usuarios
 		WHERE username = pusername;
+    END IF;
+    
+    IF accion = 11 THEN 
+		SELECT fn_reputacion_usuario(pusername) as Reputacion;
+		
     END IF; 
     
 END &&
@@ -91,5 +96,6 @@ CALL sp_GestionUsuarios(2,'usuario123',null        ,null          ,'123456',null
 CALL sp_GestionUsuarios(6,null,null,null,null,null,null); #RANKING USUARIOS
 CALL sp_GestionUsuarios(7,'admin',null,null,null,'DISCORD',null); #AGREGAR USUARIO DISCORD
 CALL sp_GestionUsuarios(8,'admin',null,null,null,null,null); #OBTENER USUARIO DE DISCORD
+CALL sp_GestionUsuarios(11,'admin',null,null,null,null,null); #OBTENER REPUTACION DE USUARIO
 
 update usuarios SET discordUser = NULL where username='admin';

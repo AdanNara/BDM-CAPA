@@ -22,6 +22,7 @@
 
     $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
     $ultimaModificacion = require 'src/controllers/utlimaModificacion.php';
+    $reputacion = require 'src/controllers/reputacion.php';
     
     ?>
 
@@ -93,6 +94,7 @@
            
             <br>
             <h3 id="h-ultimaMod"><?= htmlspecialchars($ultimaModificacion) ?></h3>
+            <h3 id="h-reputacion"><?= htmlspecialchars($reputacion) ?></h3>
 
         </div>
     </main>

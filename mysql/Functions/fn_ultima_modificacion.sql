@@ -18,4 +18,4 @@ END;
 DELIMITER ;
 
 
-drop function ultima_modificacion;
+drop function fn_ultima_modificacion;

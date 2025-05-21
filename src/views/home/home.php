@@ -61,7 +61,7 @@
                         <p class="username"> <?= htmlspecialchars($publicacion['Usuario']) ?>
                             
                             <!-- Insignia si es usuario tipo "administrador" -->
-                            <?php if($publicacion['TipoUsuario']==='1'){?>
+                            <?php if($publicacion['TipoUsuario']=='1'){?>
                                 <i class='bx bxs-wrench'></i>
                             <?php } ?>
                             <!-- Insignia si el usuario es parte del Ranking de  usuarios -->
