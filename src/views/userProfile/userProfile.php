@@ -70,6 +70,8 @@
                 <?php } ?>
             </div>
 
+            <label id="reputacion"><i class='bx bxs-star estrellaReputacion'></i>Reputacion: <?= htmlspecialchars($reputacion) ?></label>
+
             <form id="formulario-infousuario" method="post" action="/src/controllers/modificarUsuario.php">
                 <label for="lb_username">Nombre de usuario</label>
                 <input type="text" name="username" id="in_username" value="<?= htmlspecialchars($usuarioLoggeado['username']) ?>" disabled>
@@ -94,7 +96,7 @@
            
             <br>
             <h3 id="h-ultimaMod"><?= htmlspecialchars($ultimaModificacion) ?></h3>
-            <h3 id="h-reputacion"><?= htmlspecialchars($reputacion) ?></h3>
+            
 
         </div>
     </main>
