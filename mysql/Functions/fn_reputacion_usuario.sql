@@ -1,7 +1,5 @@
 #FUNCION PARA LA REPUTACION DEL USUARIO
-
 use db_videopost;
-
 DELIMITER //
 CREATE FUNCTION fn_reputacion_usuario(username VARCHAR(20))
 RETURNS INT
@@ -17,9 +15,3 @@ BEGIN
 END;
 //
 DELIMITER ;
-
-SELECT fn_reputacion_usuario('admin');
-
-SELECT COALESCE(SUM(calificacion), 0) AS REPUTACION
-    FROM publicaciones
-    WHERE usuario = 'admin';
