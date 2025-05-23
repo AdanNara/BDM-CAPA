@@ -46,8 +46,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items:first baseline;
-    padding: 10px;
-    font-size: clamp(15px, 2vw, 32px);
+    padding-left: 20px;
+    font-size: clamp(18px, 2vw, 35px);
 }
 
 .sidevarTopUsers{
@@ -81,8 +81,8 @@ body {
 }
 
 
-.sidevar .parteSuperior div:active {
-    transform: scale(0.9);
+.sidevar .parteSuperior div:hover {
+    transform: scale(1.1);
     
 }
 
@@ -107,6 +107,11 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.miPerfil:hover{
+    transform: scale(1.1);
 }
 
 
@@ -212,20 +217,25 @@ textarea::placeholder{
     cursor: pointer;
 }
 
-.logOut{
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logOut a {
+    color: #0a91ff; /* color inicial del texto e ícono */
+    gap: 5px; /* separación entre ícono y texto */
+    font-size: clamp(10px, 2vw, 24px);
+    display: flex; /* para alinear el ícono y el texto */
+    align-items: center; /* alinea verticalmente el ícono y el texto */
 }
 
-.logOut a{
-    color: rgb(37, 144, 194);
+/* Hover aplicado al enlace */
+.logOut a:hover {
+    color: #34b5ff; /* nuevo color al pasar el mouse */
 }
 
-.logOut .icon-logOut{
-    color: rgb(37, 144, 194);
+.icon-logOut {
+    color: inherit; /* hereda el color del <a> */
+    display: flex; /* para alinear el ícono y el texto */
+    align-items: center; /* alinea verticalmente el ícono y el texto */
 }
+
 
 .oro-trophy{
     color: gold;

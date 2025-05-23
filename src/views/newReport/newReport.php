@@ -56,7 +56,7 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
                 <!-- Contenido -->
                 <div class="post-content">
                     <h1>Reporte</h1>
-                    <textarea name="description" id="in_description" placeholder="Escriba su reporte aquí..."></textarea>
+                    <textarea name="description" id="in_description" placeholder="Escriba su reporte aquí..." required></textarea>
                 </div>
                 
                 <div class="post-actions">

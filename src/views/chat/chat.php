@@ -73,7 +73,7 @@ $usuarioLoggeado = $_SESSION['usuarioLoggeado'];
                 <div id="cont-input">
 
                     <form id="formulario-input">
-                        <input id="in-texto" type="text" placeholder="Escribe tu mensaje aqui...">
+                        <input id="in-texto" type="text" placeholder="Escribe tu mensaje aqui..." required>
                         <button id="in-enviar" type="submit">Enviar</button>
                     </form>
 
