@@ -275,3 +275,18 @@ textarea::placeholder{
 .post-category{
     cursor: pointer;
 }
+
+
+.logoInicial{   
+    width: 500px;      
+    height: auto;      
+    position: absolute; 
+    top: 60px;
+    
+}
+
+.logoAsidebar{
+    width: 250px;      
+    height: auto;
+    margin-top: 20px;
+}

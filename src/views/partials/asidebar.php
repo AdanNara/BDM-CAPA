@@ -3,6 +3,7 @@
 
 <aside class="sidevar">
 <div class="parteSuperior">
+    <img class="logoAsidebar" src="/resources/logo.png">
     <div class="inicio">
         <i class='bx bxs-home' ></i>
         <a href="/home"> INICIO</a>

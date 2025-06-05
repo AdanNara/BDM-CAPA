@@ -20,7 +20,7 @@
 <?php 
     //session_start();
 ?>
-
+<img class="logoInicial" src="/resources/logo.png">
 <div class="container">
         <div class="logIn-container">
             <h1>INICIAR SESION</h1>

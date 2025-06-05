@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+<img class="logoInicial" src="/resources/logo.png">
 <div class="container">
     
         <div class="signIn-container">
